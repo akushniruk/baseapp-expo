@@ -4,7 +4,7 @@ import { AppStack, AuthStack } from "./Stack";
 export const Router = () => {
     return (
         <NavigationContainer>
-            {true ? <AppStack /> : <AuthStack />}
+            {false ? <AppStack /> : <AuthStack />}
         </NavigationContainer>
     );
 };
