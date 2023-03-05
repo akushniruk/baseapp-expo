@@ -1,12 +1,15 @@
 import React from "react";
-import { View } from "react-native";
+import { SafeAreaView, ScrollView } from "react-native";
 import { Register } from "@akushniruk/baseapp-expo-sdk";
+import { globalStyles } from "../../../../shared/styles/global";
 
 const RegisterScreen = () => {
     return (
-        <View>
-            <Register />
-        </View>
+        <SafeAreaView>
+            <ScrollView style={globalStyles.layoutContainer}>
+                <Register />
+            </ScrollView>
+        </SafeAreaView>
     );
 };
 

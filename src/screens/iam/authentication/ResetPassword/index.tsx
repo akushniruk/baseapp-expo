@@ -1,16 +1,16 @@
 import React from "react";
 import { SafeAreaView, ScrollView } from "react-native";
-import { Login } from "@akushniruk/baseapp-expo-sdk";
+import { ResetPassword } from "@akushniruk/baseapp-expo-sdk";
 import { globalStyles } from "../../../../shared/styles/global";
 
-const LoginScreen = () => {
+const ResetPasswordScreen = () => {
     return (
         <SafeAreaView>
             <ScrollView style={globalStyles.layoutContainer}>
-                <Login />
+                <ResetPassword />
             </ScrollView>
         </SafeAreaView>
     );
 };
 
-export default LoginScreen;
+export default ResetPasswordScreen;
