@@ -9,7 +9,7 @@
         "web": "expo start --web"
     },
     "dependencies": {
-        "@akushniruk/baseapp-expo-sdk": "0.0.10",
+        "@akushniruk/baseapp-expo-sdk": "0.0.11",
         "@react-navigation/bottom-tabs": "6.5.7",
         "@react-navigation/native-stack": "6.9.12",
         "expo": "~48.0.4",
