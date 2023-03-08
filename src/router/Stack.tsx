@@ -12,22 +12,9 @@ import MarketsScreen from "../screens/markets";
 import TradesScreen from "../screens/trades";
 import OrdersScreen from "../screens/orders";
 import WalletsScreen from "../screens/wallets";
-import { lightPalette } from "../shared/styles/theme/light";
+import { screenOptions, screenWithoutHeader } from "./options";
 
 const Stack = createNativeStackNavigator();
-
-const screenOptions = {
-    headerStyle: {
-        backgroundColor: lightPalette.Background["main-background-color"].value,
-    },
-    contentStyle: {
-        backgroundColor: lightPalette.Background["main-background-color"].value,
-    },
-};
-
-const screenWithoutHeader = {
-    headerShown: false,
-};
 
 export const authStack = () => {
     return (
