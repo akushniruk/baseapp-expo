@@ -1,5 +1,7 @@
+import { withAuth } from "@akushniruk/baseapp-expo-sdk";
 import React from "react";
 import { View, Text } from "react-native";
+import redirectToAuth from "../../shared/lib/redirectToAuth";
 
 const WalletsScreen = () => {
     return (
@@ -9,4 +11,4 @@ const WalletsScreen = () => {
     );
 };
 
-export default WalletsScreen;
+export default withAuth(WalletsScreen, redirectToAuth);
