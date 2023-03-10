@@ -12,21 +12,45 @@ import MarketsScreen from "../screens/markets";
 import TradesScreen from "../screens/trades";
 import OrdersScreen from "../screens/orders";
 import WalletsScreen from "../screens/wallets";
-import { screenOptions, screenWithoutHeader } from "./options";
+
+import {
+    authStackHeaderOptions,
+    screenOptions,
+    screenWithoutHeader,
+} from "./options";
 
 const Stack = createNativeStackNavigator();
 
 export const authStack = () => {
     return (
         <>
-            <Stack.Screen name="Login" component={LoginScreen} />
-            <Stack.Screen name="Register" component={RegisterScreen} />
+            <Stack.Screen
+                name="Login"
+                component={LoginScreen}
+                options={({ navigation }) =>
+                    authStackHeaderOptions(navigation, false)
+                }
+            />
+            <Stack.Screen
+                name="Register"
+                component={RegisterScreen}
+                options={({ navigation }) => authStackHeaderOptions(navigation)}
+            />
             <Stack.Screen
                 name="ForgotPassword"
                 component={ForgotPasswordScreen}
+                options={({ navigation }) => authStackHeaderOptions(navigation)}
             />
-            <Stack.Screen name="ResetPassword" component={VerifyEmailScreen} />
-            <Stack.Screen name="VerifyEmail" component={ResetPasswordScreen} />
+            <Stack.Screen
+                name="ResetPassword"
+                component={VerifyEmailScreen}
+                options={({ navigation }) => authStackHeaderOptions(navigation)}
+            />
+            <Stack.Screen
+                name="VerifyEmail"
+                component={ResetPasswordScreen}
+                options={({ navigation }) => authStackHeaderOptions(navigation)}
+            />
         </>
     );
 };
