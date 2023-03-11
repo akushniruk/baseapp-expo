@@ -1,5 +1,5 @@
 import { FC, useCallback } from "react";
-import { Pressable, Image } from "react-native";
+import { Pressable, Image, StyleSheet } from "react-native";
 
 export const AuthStackHeader: FC<any> = ({ navigation }) => {
     const returnHome = useCallback(() => {
@@ -9,8 +9,16 @@ export const AuthStackHeader: FC<any> = ({ navigation }) => {
     return (
         <Pressable onPress={returnHome}>
             <Image
+                style={styles.cancel}
                 source={require("../../../assets/images/system/cancel.png")}
             />
         </Pressable>
     );
 };
+
+const styles = StyleSheet.create({
+    cancel: {
+        height: 24,
+        width: 24,
+    },
+});
