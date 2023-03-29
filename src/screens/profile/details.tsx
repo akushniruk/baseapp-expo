@@ -1,22 +1,21 @@
-import { withAuth } from "@akushniruk/baseapp-expo-sdk";
+import { withAuth, ProfileDetails } from "@akushniruk/baseapp-expo-sdk";
 import React from "react";
 import { StyleSheet, SafeAreaView, ScrollView } from "react-native";
-import { ProfileWidget } from "@akushniruk/baseapp-expo-sdk";
 import { globalStyles } from "../../shared/styles/global";
 
-const ProfileScreen = () => {
+const ProfileDetailsScreen = () => {
     return (
         <SafeAreaView>
             <ScrollView
                 style={[globalStyles.layoutContainer, styles.container]}
             >
-                <ProfileWidget />
+                <ProfileDetails />
             </ScrollView>
         </SafeAreaView>
     );
 };
 
-export default withAuth(ProfileScreen);
+export default withAuth(ProfileDetailsScreen);
 
 const styles = StyleSheet.create({
     container: {

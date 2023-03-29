@@ -1,22 +1,25 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import HomeScreen from "../screens/home";
 import LoginScreen from "../screens/iam/authentication/Login";
 import RegisterScreen from "../screens/iam/authentication/Register";
 import ForgotPasswordScreen from "../screens/iam/authentication/ForgotPassword";
 import VerifyEmailScreen from "../screens/iam/authentication/VerifyEmail";
 import ResetPasswordScreen from "../screens/iam/authentication/ResetPassword";
 
-import ProfileScreen from "../screens/profile";
+import HomeScreen from "../screens/home";
 import MarketsScreen from "../screens/markets";
 import TradesScreen from "../screens/trades";
 import OrdersScreen from "../screens/orders";
 import WalletsScreen from "../screens/wallets";
 
+import ProfileScreen from "../screens/profile";
+import ProfileDetailsScreen from "../screens/profile/details";
+
 import {
-    authStackHeaderOptions,
+    stackHeaderOptions,
     screenOptions,
     screenWithoutHeader,
+    stackHomeHeaderOptions,
 } from "./options";
 
 const Stack = createNativeStackNavigator();
@@ -28,28 +31,61 @@ export const authStack = () => {
                 name="Login"
                 component={LoginScreen}
                 options={({ navigation }) =>
-                    authStackHeaderOptions(navigation, false)
+                    stackHeaderOptions(navigation, false, true, true)
                 }
             />
             <Stack.Screen
                 name="Register"
                 component={RegisterScreen}
-                options={({ navigation }) => authStackHeaderOptions(navigation)}
+                options={({ navigation }) => stackHeaderOptions(navigation)}
             />
             <Stack.Screen
                 name="ForgotPassword"
                 component={ForgotPasswordScreen}
-                options={({ navigation }) => authStackHeaderOptions(navigation)}
+                options={({ navigation }) => stackHeaderOptions(navigation)}
             />
             <Stack.Screen
                 name="ResetPassword"
                 component={VerifyEmailScreen}
-                options={({ navigation }) => authStackHeaderOptions(navigation)}
+                options={({ navigation }) => stackHeaderOptions(navigation)}
             />
             <Stack.Screen
                 name="VerifyEmail"
                 component={ResetPasswordScreen}
-                options={({ navigation }) => authStackHeaderOptions(navigation)}
+                options={({ navigation }) => stackHeaderOptions(navigation)}
+            />
+        </>
+    );
+};
+
+export const profileStack = () => {
+    return (
+        <>
+            <Stack.Screen
+                name="Profile"
+                component={ProfileScreen}
+                options={({ navigation }) =>
+                    stackHeaderOptions(
+                        navigation,
+                        false,
+                        false,
+                        false,
+                        "Profile"
+                    )
+                }
+            />
+            <Stack.Screen
+                name="Details"
+                component={ProfileDetailsScreen}
+                options={({ navigation }) =>
+                    stackHeaderOptions(
+                        navigation,
+                        false,
+                        false,
+                        false,
+                        "Profile info"
+                    )
+                }
             />
         </>
     );
@@ -58,11 +94,14 @@ export const authStack = () => {
 export const HomeStack = () => {
     return (
         <Stack.Navigator
-            screenOptions={{ ...screenWithoutHeader, ...screenOptions }}
+            screenOptions={{ ...screenOptions }}
             initialRouteName="Home"
         >
-            <Stack.Screen name="Home" component={HomeScreen}></Stack.Screen>
-            <Stack.Screen name="Profile" component={ProfileScreen} />
+            <Stack.Screen
+                name="Home"
+                component={HomeScreen}
+                options={({ navigation }) => stackHomeHeaderOptions(navigation)}
+            ></Stack.Screen>
         </Stack.Navigator>
     );
 };

@@ -1,7 +1,7 @@
 import { FC, useCallback } from "react";
 import { Pressable, Image, StyleSheet } from "react-native";
 
-export const AuthStackHeader: FC<any> = ({ navigation }) => {
+export const CloseStackHeader: FC<any> = ({ navigation }) => {
     const returnHome = useCallback(() => {
         navigation.navigate("Home");
     }, [navigation]);
@@ -10,7 +10,7 @@ export const AuthStackHeader: FC<any> = ({ navigation }) => {
         <Pressable onPress={returnHome}>
             <Image
                 style={styles.cancel}
-                source={require("../../../assets/images/system/cancel.png")}
+                source={require("../../../../../assets/images/system/cancel.png")}
             />
         </Pressable>
     );
