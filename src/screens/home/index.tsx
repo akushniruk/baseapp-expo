@@ -11,7 +11,7 @@ const HomeScreen = () => {
     );
 
     const renderAuth = useMemo(() => {
-        if (userProfile) {
+        if (!userProfile) {
             return (
                 <View style={styles.container}>
                     <View>
