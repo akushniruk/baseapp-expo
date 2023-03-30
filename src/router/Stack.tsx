@@ -14,6 +14,10 @@ import WalletsScreen from "../screens/wallets";
 
 import ProfileScreen from "../screens/profile";
 import ProfileDetailsScreen from "../screens/profile/details";
+import ReferralScreen from "../screens/profile/referral";
+import SecurityScreen from "../screens/profile/security";
+import ApiKeysScreen from "../screens/profile/apiKeys";
+import ApiDocsScreen from "../screens/profile/apiDocs";
 
 import {
     stackHeaderOptions,
@@ -84,6 +88,71 @@ export const profileStack = () => {
                         false,
                         false,
                         "Profile info"
+                    )
+                }
+            />
+            <Stack.Screen
+                name="Referral"
+                component={ReferralScreen}
+                options={({ navigation }) =>
+                    stackHeaderOptions(
+                        navigation,
+                        false,
+                        false,
+                        false,
+                        "Referral"
+                    )
+                }
+            />
+            <Stack.Screen
+                name="ApiKeys"
+                component={ApiKeysScreen}
+                options={({ navigation }) =>
+                    stackHeaderOptions(
+                        navigation,
+                        false,
+                        false,
+                        false,
+                        "API Keys"
+                    )
+                }
+            />
+            <Stack.Screen
+                name="Security"
+                component={SecurityScreen}
+                options={({ navigation }) =>
+                    stackHeaderOptions(
+                        navigation,
+                        false,
+                        false,
+                        false,
+                        "Security"
+                    )
+                }
+            />
+            <Stack.Screen
+                name="ApiDocs"
+                component={ApiDocsScreen}
+                options={({ navigation }) =>
+                    stackHeaderOptions(
+                        navigation,
+                        false,
+                        false,
+                        false,
+                        "API Docs"
+                    )
+                }
+            />
+            <Stack.Screen
+                name="Support"
+                component={ProfileDetailsScreen}
+                options={({ navigation }) =>
+                    stackHeaderOptions(
+                        navigation,
+                        false,
+                        false,
+                        false,
+                        "Help & Support"
                     )
                 }
             />
