@@ -9,7 +9,6 @@ export const homeStyles = (theme: string) => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            marginBottom: 24,
         },
         scrollViewContainer: {
             width: "100%",

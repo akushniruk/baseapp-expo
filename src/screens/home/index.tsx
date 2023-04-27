@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { SafeAreaView, Text, Image, ScrollView, View } from "react-native";
 import { useAppSelector } from "@akushniruk/baseapp-expo-sdk/src/shared";
 import { RootState } from "@akushniruk/baseapp-expo-sdk/src/shared/providers/redux/model/store";
@@ -20,9 +20,9 @@ const HomeScreen = () => {
         (state: RootState) => state.user.profile
     );
 
-    const handleAuthRedirect = () => {
+    const handleAuthRedirect = useCallback(() => {
         userProfile ? linkTo("/Profile") : linkTo("/Login");
-    };
+    }, []);
 
     const renderInfoRow = (item) => {
         return (
@@ -202,7 +202,7 @@ const HomeScreen = () => {
                         All the power of Baseapp cryptocurrency exchange, in the
                         palm of your hand.
                     </Text>
-                    <View style={styles.marginTop24}>
+                    <View style={(styles.marginTop24, { paddingBottom: 24 })}>
                         <Button
                             onPress={handleAuthRedirect}
                             title="Let's Try"
