@@ -163,7 +163,7 @@ export const profileStack = () => {
 export const HomeStack = () => {
     return (
         <Stack.Navigator
-            screenOptions={{ ...screenOptions }}
+            screenOptions={{ ...screenOptions() }}
             initialRouteName="Home"
         >
             <Stack.Screen
@@ -178,7 +178,7 @@ export const HomeStack = () => {
 export const MarketsStack = () => {
     return (
         <Stack.Navigator
-            screenOptions={{ ...screenWithoutHeader, ...screenOptions }}
+            screenOptions={{ ...screenWithoutHeader, ...screenOptions() }}
             initialRouteName="Markets"
         >
             <Stack.Screen name="Markets" component={MarketsScreen} />
@@ -189,7 +189,7 @@ export const MarketsStack = () => {
 export const TradesStack = () => {
     return (
         <Stack.Navigator
-            screenOptions={{ ...screenWithoutHeader, ...screenOptions }}
+            screenOptions={{ ...screenWithoutHeader, ...screenOptions() }}
             initialRouteName="Trades"
         >
             <Stack.Screen name="Trades" component={TradesScreen} />
@@ -200,7 +200,7 @@ export const TradesStack = () => {
 export const OrdersStack = () => {
     return (
         <Stack.Navigator
-            screenOptions={{ ...screenWithoutHeader, ...screenOptions }}
+            screenOptions={{ ...screenWithoutHeader, ...screenOptions() }}
             initialRouteName="Orders"
         >
             <Stack.Screen name="Orders" component={OrdersScreen} />
@@ -211,7 +211,7 @@ export const OrdersStack = () => {
 export const WalletsStack = () => {
     return (
         <Stack.Navigator
-            screenOptions={{ ...screenWithoutHeader, ...screenOptions }}
+            screenOptions={{ ...screenWithoutHeader, ...screenOptions() }}
             initialRouteName="Wallets"
         >
             <Stack.Screen name="Wallets" component={WalletsScreen} />

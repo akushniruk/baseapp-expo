@@ -10,7 +10,7 @@ export const CloseStackHeader: FC<any> = ({ navigation }) => {
         <Pressable onPress={returnHome}>
             <Image
                 style={styles.cancel}
-                source={require("../../../../../assets/images/system/cancel.png")}
+                source={require("../../../../assets/images/system/cancel.png")}
             />
         </Pressable>
     );

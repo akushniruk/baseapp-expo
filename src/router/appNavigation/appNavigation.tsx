@@ -1,6 +1,6 @@
 import { FC, useCallback } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NavigationIcons } from "../../../assets/images/navigation/navigationIcons";
+import { NavigationIcons } from "../../assets/images/navigation/navigationIcons";
 import {
     HomeStack,
     MarketsStack,
@@ -8,11 +8,17 @@ import {
     TradesStack,
     WalletsStack,
 } from "../stack";
-import { lightPalette } from "../../shared/styles/theme/light";
+import { getPalette } from "../../shared/lib/getPalette";
+// TODO: fix import
+import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";
 
 const Tab = createBottomTabNavigator();
 
 export const AppNavigation: FC = () => {
+    const { theme } = useThemeContext();
+
+    const palette = getPalette(theme);
+
     return (
         <Tab.Navigator
             initialRouteName="exchange"
@@ -28,10 +34,9 @@ export const AppNavigation: FC = () => {
                         );
                     },
                     tabBarActiveTintColor:
-                        lightPalette.Navbar["navbar-control-layer-color"][60]
-                            .value,
+                        palette.Navbar["navbar-control-layer-color"][60].value,
                     tabBarInactiveTintColor:
-                        lightPalette.Controls["neutral-control-layer-color"][70]
+                        palette.Controls["neutral-control-layer-color"][70]
                             .value,
                 }),
                 []

@@ -4,7 +4,9 @@ import { Markets } from "./markets";
 import { Trade } from "./trade";
 import { Orders } from "./orders";
 import { Wallet } from "./wallet";
-import { lightPalette } from "../../../src/shared/styles/theme/light";
+import { getPalette } from "../../../shared/lib/getPalette";
+// TODO: fix import
+import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";
 
 export interface NavigationIconProps {
     color?: string;
@@ -16,15 +18,19 @@ interface Props {
 }
 
 export const NavigationIcons: FC<Props> = ({ name, focused }) => {
+    const { theme } = useThemeContext();
+
+    const palette = getPalette(theme);
+
     switch (name) {
         case "HomeStack":
             return (
                 <Home
                     color={
                         focused
-                            ? lightPalette.Navbar["navbar-control-bg-color"][80]
+                            ? palette.Navbar["navbar-control-layer-color"][60]
                                   .value
-                            : lightPalette.Controls["neutral-control-color"][70]
+                            : palette.Controls["neutral-control-color"][70]
                                   .value
                     }
                 />
@@ -34,9 +40,9 @@ export const NavigationIcons: FC<Props> = ({ name, focused }) => {
                 <Markets
                     color={
                         focused
-                            ? lightPalette.Navbar["navbar-control-bg-color"][80]
+                            ? palette.Navbar["navbar-control-layer-color"][60]
                                   .value
-                            : lightPalette.Controls["neutral-control-color"][70]
+                            : palette.Controls["neutral-control-color"][70]
                                   .value
                     }
                 />
@@ -46,9 +52,9 @@ export const NavigationIcons: FC<Props> = ({ name, focused }) => {
                 <Trade
                     color={
                         focused
-                            ? lightPalette.Navbar["navbar-control-bg-color"][80]
+                            ? palette.Navbar["navbar-control-layer-color"][60]
                                   .value
-                            : lightPalette.Controls["neutral-control-color"][80]
+                            : palette.Controls["neutral-control-color"][80]
                                   .value
                     }
                 />
@@ -58,9 +64,9 @@ export const NavigationIcons: FC<Props> = ({ name, focused }) => {
                 <Orders
                     color={
                         focused
-                            ? lightPalette.Navbar["navbar-control-bg-color"][80]
+                            ? palette.Navbar["navbar-control-layer-color"][60]
                                   .value
-                            : lightPalette.Controls["neutral-control-color"][80]
+                            : palette.Controls["neutral-control-color"][80]
                                   .value
                     }
                 />
@@ -70,9 +76,9 @@ export const NavigationIcons: FC<Props> = ({ name, focused }) => {
                 <Wallet
                     color={
                         focused
-                            ? lightPalette.Navbar["navbar-control-bg-color"][80]
+                            ? palette.Navbar["navbar-control-layer-color"][60]
                                   .value
-                            : lightPalette.Controls["neutral-control-color"][80]
+                            : palette.Controls["neutral-control-color"][80]
                                   .value
                     }
                 />

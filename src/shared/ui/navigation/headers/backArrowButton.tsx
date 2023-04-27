@@ -1,6 +1,6 @@
 import { FC, useCallback } from "react";
 import { Pressable } from "react-native";
-import { ArrowLeft } from "../../../../../assets/images/navigation/arrowLeft";
+import { ArrowLeft } from "../../../../assets/images/navigation/arrowLeft";
 
 export const BackArrowButton: FC<any> = ({ navigation }) => {
     const returnHome = useCallback(() => {

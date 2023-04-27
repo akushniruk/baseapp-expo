@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator();
 export const Router: FC = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator screenOptions={screenOptions}>
+            <Stack.Navigator screenOptions={screenOptions()}>
                 <Stack.Screen
                     name="App"
                     component={AppNavigation}

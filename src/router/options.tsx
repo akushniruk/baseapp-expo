@@ -1,17 +1,22 @@
 import React from "react";
-import { lightPalette } from "../shared/styles/theme/light";
 import { BackArrowButton } from "../shared/ui/navigation/headers/backArrowButton";
 import { CloseStackHeader } from "../shared/ui/navigation/headers/closeStackHeader";
 import { ProfileHomeIcon } from "../shared/ui/navigation/headers/profileHomeIcon";
+import { LoginButton } from "../shared/ui/navigation/headers/loginButton";
+import { getPalette } from "../shared/lib/getPalette";
 
-export const screenOptions = {
-    headerShadowVisible: false,
-    headerStyle: {
-        backgroundColor: lightPalette.Background["main-background-color"].value,
-    },
-    contentStyle: {
-        backgroundColor: lightPalette.Background["main-background-color"].value,
-    },
+export const screenOptions = () => {
+    const palette = getPalette("light");
+
+    return {
+        headerShadowVisible: false,
+        headerStyle: {
+            backgroundColor: palette.Background["main-background-color"].value,
+        },
+        contentStyle: {
+            backgroundColor: palette.Background["main-background-color"].value,
+        },
+    };
 };
 
 export const screenWithoutHeader = {
@@ -46,4 +51,5 @@ export const stackHomeHeaderOptions = (navigation: any, title?: string) => ({
     headerBackVisible: false,
     headerShadowVisible: false,
     headerLeft: () => <ProfileHomeIcon navigation={navigation} />,
+    headerRight: () => <LoginButton navigation={navigation} />,
 });
