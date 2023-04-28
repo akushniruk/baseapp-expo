@@ -7,11 +7,11 @@ import { INFO_AURORA, LETS_GET_STARTED, PLATFORM_FEATURES } from "./config";
 import { homeStyles } from "./home.styles";
 // TODO: fix import
 import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";
-import { useLinkTo } from "@react-navigation/native";
+import { useLinkTo, useNavigation } from "@react-navigation/native";
 
 const HomeScreen = () => {
+    const navigation = useNavigation();
     const linkTo = useLinkTo();
-
     const { theme } = useThemeContext();
 
     const styles = homeStyles(theme);
@@ -98,7 +98,7 @@ const HomeScreen = () => {
                 </View>
                 <View style={[styles.infoBlock, styles.infoBlockMargin]}>
                     <Text style={styles.title}>Popular Market pairs</Text>
-                    <MarketsV1 />
+                    <MarketsV1 navigation={navigation} />
                 </View>
                 {/* Experience */}
                 <View style={[styles.infoBlock, styles.infoBlockMargin]}>

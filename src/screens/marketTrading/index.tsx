@@ -1,15 +1,17 @@
-import { useNavigation } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
 import React from "react";
 import { View, Text } from "react-native";
 
-const MarketsScreen = () => {
-    const navigation = useNavigation();
-
+const MarketTradingScreen = () => {
+    const {
+        params: { id },
+    } = useRoute();
+    console.log(id);
     return (
         <View>
-            <Text>Markets</Text>
+            <Text>{id}</Text>
         </View>
     );
 };
 
-export default MarketsScreen;
+export default MarketTradingScreen;

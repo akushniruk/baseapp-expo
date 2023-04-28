@@ -21,7 +21,7 @@ export const AppNavigation: FC = () => {
 
     return (
         <Tab.Navigator
-            initialRouteName="exchange"
+            initialRouteName="Exchange"
             screenOptions={useCallback(
                 ({ route }) => ({
                     headerShown: false,

@@ -25,6 +25,7 @@ import {
     screenWithoutHeader,
     stackHomeHeaderOptions,
 } from "./options";
+import MarketTradingScreen from "../screens/marketTrading";
 
 const Stack = createNativeStackNavigator();
 
@@ -182,10 +183,7 @@ export const MarketsStack = () => {
             initialRouteName="Markets"
         >
             <Stack.Screen name="Markets" component={MarketsScreen} />
-            <Stack.Screen
-                name="Markets/Trading"
-                component={MarketsTradingScreen}
-            />
+            <Stack.Screen name="Trading" component={MarketTradingScreen} />
         </Stack.Navigator>
     );
 };
