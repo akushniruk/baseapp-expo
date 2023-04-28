@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import { SafeAreaView, Text, Image, ScrollView, View } from "react-native";
 import { useAppSelector } from "@akushniruk/baseapp-expo-sdk/src/shared";
 import { RootState } from "@akushniruk/baseapp-expo-sdk/src/shared/providers/redux/model/store";
-import { Button } from "@akushniruk/baseapp-expo-sdk";
+import { Button, MarketsV1 } from "@akushniruk/baseapp-expo-sdk";
 import { INFO_AURORA, LETS_GET_STARTED, PLATFORM_FEATURES } from "./config";
 import { homeStyles } from "./home.styles";
 // TODO: fix import
@@ -26,7 +26,7 @@ const HomeScreen = () => {
 
     const renderInfoRow = (item) => {
         return (
-            <View>
+            <View key={item.id}>
                 <Text style={[styles.infoRowText, styles.infoRowTextBold]}>
                     {item.amount}
                 </Text>
@@ -37,7 +37,7 @@ const HomeScreen = () => {
 
     const renderPlatformFeatures = (item) => {
         return (
-            <View style={styles.featureBox}>
+            <View key={item.id} style={styles.featureBox}>
                 <View style={styles.featureBoxImage}>{item.img}</View>
                 <Text style={styles.featureBoxTitle}>{item.title}</Text>
                 <Text style={styles.featureBoxContent}>{item.content}</Text>
@@ -47,7 +47,7 @@ const HomeScreen = () => {
 
     const renderLetsGetStarted = (item) => {
         return (
-            <View style={styles.getStartedBox}>
+            <View key={item.id} style={styles.getStartedBox}>
                 <View style={styles.getStartedBoxLevel}>
                     <Text style={styles.getStartedBoxLevelText}>{item.id}</Text>
                 </View>
@@ -60,35 +60,6 @@ const HomeScreen = () => {
             </View>
         );
     };
-
-    // const renderAuth = useMemo(() => {
-    //     if (!userProfile) {
-    //         return (
-    //             <View>
-    //                 {/* <View>
-    //                     <Text style={styles.title}>Welcome to Baseapp</Text>
-    //                     Place for image
-    //                 </View>
-    //                 <View style={styles.containerForButtons}>
-    //                     <Link
-    //                         to={{ screen: "Register" }}
-    //                         style={[styles.button, styles.buttonRegister]}
-    //                     >
-    //                         <Text>Register</Text>
-    //                     </Link>
-    //                     <Link
-    //                         to={{ screen: "Login" }}
-    //                         style={[styles.button, styles.buttonLogin]}
-    //                     >
-    //                         <Text>Login</Text>
-    //                     </Link>
-    //                 </View> */}
-    //             </View>
-    //         );
-    //     }
-
-    //     return null;
-    // }, [userProfile]);
 
     return (
         <SafeAreaView style={styles.safeAreaContainer}>
@@ -127,7 +98,7 @@ const HomeScreen = () => {
                 </View>
                 <View style={[styles.infoBlock, styles.infoBlockMargin]}>
                     <Text style={styles.title}>Popular Market pairs</Text>
-                    <Text>Markets component</Text>
+                    <MarketsV1 />
                 </View>
                 {/* Experience */}
                 <View style={[styles.infoBlock, styles.infoBlockMargin]}>

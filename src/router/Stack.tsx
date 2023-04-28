@@ -182,6 +182,10 @@ export const MarketsStack = () => {
             initialRouteName="Markets"
         >
             <Stack.Screen name="Markets" component={MarketsScreen} />
+            <Stack.Screen
+                name="Markets/Trading"
+                component={MarketsTradingScreen}
+            />
         </Stack.Navigator>
     );
 };
