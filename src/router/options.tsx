@@ -1,10 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 import { BackArrowButton } from "../shared/ui/navigation/headers/backArrowButton";
 import { CloseStackHeader } from "../shared/ui/navigation/headers/closeStackHeader";
 import { ProfileHomeIcon } from "../shared/ui/navigation/headers/profileHomeIcon";
 import { LoginButton } from "../shared/ui/navigation/headers/loginButton";
 import { getPalette } from "../shared/lib/getPalette";
-
+import { Text } from "react-native";
 export const screenOptions = () => {
     const palette = getPalette("light");
 
@@ -28,20 +28,19 @@ export const stackHeaderOptions = (
     headerBackVisible?: boolean,
     headerRight?: boolean,
     hideHeaderLeft?: boolean,
-    title?: string
+    title?: string,
+    headerTitle?: React.ReactNode
 ) => ({
-    title: title || "",
     headerBackVisible: headerBackVisible,
     headerShadowVisible: false,
+    headerTitle: () => {
+        return !title ? headerTitle : <Text>{title}</Text>;
+    },
     headerLeft: () => {
-        return !hideHeaderLeft ? (
-            <BackArrowButton navigation={navigation} />
-        ) : undefined;
+        return !hideHeaderLeft ? <BackArrowButton navigation={navigation} /> : undefined;
     },
     headerRight: () => {
-        return headerRight ? (
-            <CloseStackHeader navigation={navigation} />
-        ) : undefined;
+        return headerRight ? <CloseStackHeader navigation={navigation} /> : undefined;
     },
 });
 

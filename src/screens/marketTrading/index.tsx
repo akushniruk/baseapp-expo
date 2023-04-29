@@ -4,9 +4,9 @@ import { View, Text } from "react-native";
 
 const MarketTradingScreen = () => {
     const {
-        params: { id },
+        params: { id, base_unit, quote_unit },
     } = useRoute();
-    console.log(id);
+
     return (
         <View>
             <Text>{id}</Text>

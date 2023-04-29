@@ -19,13 +19,10 @@ import SecurityScreen from "../screens/profile/security";
 import ApiKeysScreen from "../screens/profile/apiKeys";
 import ApiDocsScreen from "../screens/profile/apiDocs";
 
-import {
-    stackHeaderOptions,
-    screenOptions,
-    screenWithoutHeader,
-    stackHomeHeaderOptions,
-} from "./options";
+import { stackHeaderOptions, screenOptions, screenWithoutHeader, stackHomeHeaderOptions } from "./options";
 import MarketTradingScreen from "../screens/marketTrading";
+import React from "react";
+import { MarketsSelectorModal } from "../widgets/MarketsSelectorModal";
 
 const Stack = createNativeStackNavigator();
 
@@ -35,9 +32,7 @@ export const authStack = () => {
             <Stack.Screen
                 name="Login"
                 component={LoginScreen}
-                options={({ navigation }) =>
-                    stackHeaderOptions(navigation, false, true, true)
-                }
+                options={({ navigation }) => stackHeaderOptions(navigation, false, true, true)}
             />
             <Stack.Screen
                 name="Register"
@@ -69,91 +64,60 @@ export const profileStack = () => {
             <Stack.Screen
                 name="Profile"
                 component={ProfileScreen}
-                options={({ navigation }) =>
-                    stackHeaderOptions(
-                        navigation,
-                        false,
-                        false,
-                        false,
-                        "Profile"
-                    )
-                }
+                options={({ navigation }) => stackHeaderOptions(navigation, false, false, false, "Profile")}
             />
             <Stack.Screen
                 name="Details"
                 component={ProfileDetailsScreen}
-                options={({ navigation }) =>
-                    stackHeaderOptions(
-                        navigation,
-                        false,
-                        false,
-                        false,
-                        "Profile info"
-                    )
-                }
+                options={({ navigation }) => stackHeaderOptions(navigation, false, false, false, "Profile info")}
             />
             <Stack.Screen
                 name="Referral"
                 component={ReferralScreen}
-                options={({ navigation }) =>
-                    stackHeaderOptions(
-                        navigation,
-                        false,
-                        false,
-                        false,
-                        "Referral"
-                    )
-                }
+                options={({ navigation }) => stackHeaderOptions(navigation, false, false, false, "Referral")}
             />
             <Stack.Screen
                 name="ApiKeys"
                 component={ApiKeysScreen}
-                options={({ navigation }) =>
-                    stackHeaderOptions(
-                        navigation,
-                        false,
-                        false,
-                        false,
-                        "API Keys"
-                    )
-                }
+                options={({ navigation }) => stackHeaderOptions(navigation, false, false, false, "API Keys")}
             />
             <Stack.Screen
                 name="Security"
                 component={SecurityScreen}
-                options={({ navigation }) =>
-                    stackHeaderOptions(
-                        navigation,
-                        false,
-                        false,
-                        false,
-                        "Security"
-                    )
-                }
+                options={({ navigation }) => stackHeaderOptions(navigation, false, false, false, "Security")}
             />
             <Stack.Screen
                 name="ApiDocs"
                 component={ApiDocsScreen}
-                options={({ navigation }) =>
-                    stackHeaderOptions(
-                        navigation,
-                        false,
-                        false,
-                        false,
-                        "API Docs"
-                    )
-                }
+                options={({ navigation }) => stackHeaderOptions(navigation, false, false, false, "API Docs")}
             />
             <Stack.Screen
                 name="Support"
                 component={ProfileDetailsScreen}
-                options={({ navigation }) =>
+                options={({ navigation }) => stackHeaderOptions(navigation, false, false, false, "Help & Support")}
+            />
+        </>
+    );
+};
+
+export const tradingStack = () => {
+    return (
+        <>
+            <Stack.Screen
+                name="Trading"
+                component={MarketTradingScreen}
+                options={({ navigation, route }) =>
                     stackHeaderOptions(
                         navigation,
                         false,
                         false,
                         false,
-                        "Help & Support"
+                        "",
+                        <MarketsSelectorModal
+                            baseUnit={route.params?.base_unit}
+                            quoteUnit={route.params?.quote_unit}
+                            marketId={route.params?.id}
+                        />
                     )
                 }
             />
@@ -163,10 +127,7 @@ export const profileStack = () => {
 
 export const HomeStack = () => {
     return (
-        <Stack.Navigator
-            screenOptions={{ ...screenOptions() }}
-            initialRouteName="Home"
-        >
+        <Stack.Navigator screenOptions={{ ...screenOptions() }} initialRouteName="Home">
             <Stack.Screen
                 name="Home"
                 component={HomeScreen}
@@ -178,22 +139,15 @@ export const HomeStack = () => {
 
 export const MarketsStack = () => {
     return (
-        <Stack.Navigator
-            screenOptions={{ ...screenWithoutHeader, ...screenOptions() }}
-            initialRouteName="Markets"
-        >
+        <Stack.Navigator screenOptions={{ ...screenWithoutHeader, ...screenOptions() }} initialRouteName="Markets">
             <Stack.Screen name="Markets" component={MarketsScreen} />
-            <Stack.Screen name="Trading" component={MarketTradingScreen} />
         </Stack.Navigator>
     );
 };
 
 export const TradesStack = () => {
     return (
-        <Stack.Navigator
-            screenOptions={{ ...screenWithoutHeader, ...screenOptions() }}
-            initialRouteName="Trades"
-        >
+        <Stack.Navigator screenOptions={{ ...screenWithoutHeader, ...screenOptions() }} initialRouteName="Trades">
             <Stack.Screen name="Trades" component={TradesScreen} />
         </Stack.Navigator>
     );
@@ -201,10 +155,7 @@ export const TradesStack = () => {
 
 export const OrdersStack = () => {
     return (
-        <Stack.Navigator
-            screenOptions={{ ...screenWithoutHeader, ...screenOptions() }}
-            initialRouteName="Orders"
-        >
+        <Stack.Navigator screenOptions={{ ...screenWithoutHeader, ...screenOptions() }} initialRouteName="Orders">
             <Stack.Screen name="Orders" component={OrdersScreen} />
         </Stack.Navigator>
     );
@@ -212,10 +163,7 @@ export const OrdersStack = () => {
 
 export const WalletsStack = () => {
     return (
-        <Stack.Navigator
-            screenOptions={{ ...screenWithoutHeader, ...screenOptions() }}
-            initialRouteName="Wallets"
-        >
+        <Stack.Navigator screenOptions={{ ...screenWithoutHeader, ...screenOptions() }} initialRouteName="Wallets">
             <Stack.Screen name="Wallets" component={WalletsScreen} />
         </Stack.Navigator>
     );

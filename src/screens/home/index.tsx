@@ -16,9 +16,7 @@ const HomeScreen = () => {
 
     const styles = homeStyles(theme);
 
-    const userProfile = useAppSelector(
-        (state: RootState) => state.user.profile
-    );
+    const userProfile = useAppSelector((state: RootState) => state.user.profile);
 
     const handleAuthRedirect = useCallback(() => {
         userProfile ? linkTo("/Profile") : linkTo("/Login");
@@ -27,9 +25,7 @@ const HomeScreen = () => {
     const renderInfoRow = (item) => {
         return (
             <View key={item.id}>
-                <Text style={[styles.infoRowText, styles.infoRowTextBold]}>
-                    {item.amount}
-                </Text>
+                <Text style={[styles.infoRowText, styles.infoRowTextBold]}>{item.amount}</Text>
                 <Text style={styles.infoRowText}>{item.name}</Text>
             </View>
         );
@@ -53,9 +49,7 @@ const HomeScreen = () => {
                 </View>
                 <View style={styles.getStartedBoxInfo}>
                     <Text style={styles.getStartedBoxTitle}>{item.title}</Text>
-                    <Text style={styles.getStartedBoxContent}>
-                        {item.content}
-                    </Text>
+                    <Text style={styles.getStartedBoxContent}>{item.content}</Text>
                 </View>
             </View>
         );
@@ -66,39 +60,23 @@ const HomeScreen = () => {
             <ScrollView style={styles.scrollViewContainer}>
                 <View style={[styles.infoBlock]}>
                     <View style={styles.infoBlockCenter}>
-                        <Image
-                            style={styles.auroraImage}
-                            source={require("../../assets/images/home/aurora.png")}
-                        />
+                        <Image style={styles.auroraImage} source={require("../../assets/images/home/aurora.png")} />
                     </View>
 
-                    <Text
-                        style={[
-                            styles.title,
-                            styles.infoExperience,
-                            styles.marginTop24,
-                        ]}
-                    >
+                    <Text style={[styles.title, styles.infoExperience, styles.marginTop24]}>
                         Secure trading with Aurora Exchange
                     </Text>
                     <Text style={[styles.content, styles.marginTop24]}>
-                        Buy, sell, and trade a variety of digital currencies
-                        easily and securely.
+                        Buy, sell, and trade a variety of digital currencies easily and securely.
                     </Text>
                     <View style={styles.marginTop24}>
-                        <Button
-                            onPress={handleAuthRedirect}
-                            title="Sign up with email"
-                            isLoading={false}
-                        />
+                        <Button onPress={handleAuthRedirect} title="Sign up with email" isLoading={false} />
                     </View>
                 </View>
-                <View style={styles.infoRow}>
-                    {INFO_AURORA.map(renderInfoRow)}
-                </View>
+                <View style={styles.infoRow}>{INFO_AURORA.map(renderInfoRow)}</View>
                 <View style={[styles.infoBlock, styles.infoBlockMargin]}>
                     <Text style={styles.title}>Popular Market pairs</Text>
-                    <MarketsV1 navigation={navigation} />
+                    <MarketsV1 limit={5} navigation={navigation} />
                 </View>
                 {/* Experience */}
                 <View style={[styles.infoBlock, styles.infoBlockMargin]}>
@@ -108,40 +86,25 @@ const HomeScreen = () => {
                             source={require("../../assets/images/home/experience.png")}
                         />
                     </View>
-                    <Text
-                        style={[
-                            styles.title,
-                            styles.infoExperience,
-                            styles.marginTop32,
-                        ]}
-                    >
+                    <Text style={[styles.title, styles.infoExperience, styles.marginTop32]}>
                         No matter your experience level
                     </Text>
                     <Text style={styles.content}>
-                        Aurora offers an intuitive interface with real time
-                        order books, charting tools, trade history, and a simple
-                        order process so you can trade straight away!
+                        Aurora offers an intuitive interface with real time order books, charting tools, trade history,
+                        and a simple order process so you can trade straight away!
                     </Text>
                     <View style={styles.marginTop24}>
-                        <Button
-                            onPress={handleAuthRedirect}
-                            title="Sign up with email"
-                            isLoading={false}
-                        />
+                        <Button onPress={handleAuthRedirect} title="Sign up with email" isLoading={false} />
                     </View>
                 </View>
                 {/* Platform features */}
                 <View style={[styles.infoBlock, styles.infoBlockMargin]}>
-                    <Text style={[styles.title, styles.infoExperience]}>
-                        Aurora platform features
-                    </Text>
+                    <Text style={[styles.title, styles.infoExperience]}>Aurora platform features</Text>
                     <View>{PLATFORM_FEATURES.map(renderPlatformFeatures)}</View>
                 </View>
                 {/* Let's get started */}
                 <View style={[styles.infoBlock, styles.infoBlockMargin]}>
-                    <Text style={[styles.title, styles.infoExperience]}>
-                        Let’s get started
-                    </Text>
+                    <Text style={[styles.title, styles.infoExperience]}>Let’s get started</Text>
                     <View style={styles.infoBlockCenter}>
                         <Image
                             style={{ height: 347, width: 354, marginTop: 32 }}
@@ -158,27 +121,14 @@ const HomeScreen = () => {
                             source={require("../../assets/images/home/trade.png")}
                         />
                     </View>
-                    <Text
-                        style={[
-                            styles.title,
-                            styles.infoExperience,
-                            styles.marginTop32,
-                        ]}
-                    >
-                        Trade on the go
-                    </Text>
+                    <Text style={[styles.title, styles.infoExperience, styles.marginTop32]}>Trade on the go</Text>
                     <Text style={styles.content}>
-                        Our platform is optimized for trading on any device. And
-                        you don’t need to download any additional applications.
-                        All the power of Baseapp cryptocurrency exchange, in the
-                        palm of your hand.
+                        Our platform is optimized for trading on any device. And you don’t need to download any
+                        additional applications. All the power of Baseapp cryptocurrency exchange, in the palm of your
+                        hand.
                     </Text>
                     <View style={(styles.marginTop24, { paddingBottom: 24 })}>
-                        <Button
-                            onPress={handleAuthRedirect}
-                            title="Let's Try"
-                            isLoading={false}
-                        />
+                        <Button onPress={handleAuthRedirect} title="Let's Try" isLoading={false} />
                     </View>
                 </View>
             </ScrollView>
