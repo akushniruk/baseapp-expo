@@ -112,12 +112,7 @@ export const tradingStack = () => {
                         false,
                         false,
                         false,
-                        "",
-                        <MarketsSelectorModal
-                            baseUnit={route.params?.base_unit}
-                            quoteUnit={route.params?.quote_unit}
-                            marketId={route.params?.id}
-                        />
+                        `${route.params?.base_unit?.toUpperCase()}/${route.params?.quote_unit?.toUpperCase()}`
                     )
                 }
             />
