@@ -1,11 +1,19 @@
-import { Button, OrderbookWidget, TickerV1 } from "@akushniruk/baseapp-expo-sdk";
+import { Button, OrderbookWidget, TabPanel, TickerV1 } from "@akushniruk/baseapp-expo-sdk";
+import { IRoute } from "@akushniruk/baseapp-expo-sdk/src/shared";
 import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";
-import { useLinkTo, useNavigation, useRoute } from "@react-navigation/native";
-import React from "react";
-import { ScrollView, View, SafeAreaView } from "react-native";
+import { useNavigation, useRoute } from "@react-navigation/native";
+import React, { useState } from "react";
+import { ScrollView, View, SafeAreaView, Text } from "react-native";
+import { SceneMap } from "react-native-tab-view";
 import { marketTradingStyles } from "./marketTrading.styles";
 
 const MarketTradingScreen = () => {
+    const [tabIndex, setTabIndex] = useState<number>(0);
+    const [routes] = useState<IRoute[]>([
+        { key: "orderbook", title: "Order Book" },
+        { key: "trades", title: "Trades" },
+    ]);
+
     const navigation = useNavigation();
     const { theme } = useThemeContext();
 
@@ -35,6 +43,14 @@ const MarketTradingScreen = () => {
         });
     };
 
+    const OrderBook = () => <OrderbookWidget />;
+    const Trades = () => <Text>Trades Widget</Text>;
+
+    const renderScene = SceneMap({
+        orderbook: OrderBook,
+        trades: Trades,
+    });
+
     return (
         <SafeAreaView style={styles.safeAreaContainer}>
             <ScrollView style={styles.scrollViewContainer}>
@@ -43,7 +59,12 @@ const MarketTradingScreen = () => {
                         <TickerV1 marketId={id} />
                     </View>
                     <View style={styles.tradingStackOrderBook}>
-                        <OrderbookWidget />
+                        <TabPanel
+                            currentTabIndex={tabIndex}
+                            renderScene={renderScene}
+                            routes={routes}
+                            onCurrentTabChange={setTabIndex}
+                        />
                     </View>
                 </View>
             </ScrollView>
