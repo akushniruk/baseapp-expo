@@ -1,4 +1,4 @@
-import { Button, OrderbookWidget, TabPanel, TickerV1 } from "@akushniruk/baseapp-expo-sdk";
+import { Button, OrderbookWidget, TabPanel, TickerV1, Trades } from "@akushniruk/baseapp-expo-sdk";
 import { IRoute } from "@akushniruk/baseapp-expo-sdk/src/shared";
 import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -43,17 +43,21 @@ const MarketTradingScreen = () => {
         });
     };
 
-    const OrderBook = () => <OrderbookWidget />;
-    const Trades = () => <Trades />;
+    const OrderBookComponent = () => (
+        <ScrollView>
+            <OrderbookWidget />
+        </ScrollView>
+    );
+    const TradesComponent = () => <Trades />;
 
     const renderScene = SceneMap({
-        orderbook: OrderBook,
-        trades: Trades,
+        orderbook: OrderBookComponent,
+        trades: TradesComponent,
     });
 
     return (
         <SafeAreaView style={styles.safeAreaContainer}>
-            <ScrollView style={styles.scrollViewContainer}>
+            <View style={styles.scrollViewContainer}>
                 <View style={styles.tradingStack}>
                     <View style={styles.tradingStackTicker}>
                         <TickerV1 marketId={id} />
@@ -67,7 +71,7 @@ const MarketTradingScreen = () => {
                         />
                     </View>
                 </View>
-            </ScrollView>
+            </View>
 
             <View style={styles.buttonContainer}>
                 <Button

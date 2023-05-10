@@ -35,7 +35,7 @@ export const marketTradingStyles = (theme: string) => {
             paddingBottom: 32,
             position: "absolute",
             zIndex: 2,
-            bottom: 0,
+            bottom: 60,
             display: "flex",
             flexDirection: "row",
             width: "100%",
