@@ -44,7 +44,7 @@ const MarketTradingScreen = () => {
     };
 
     const OrderBook = () => <OrderbookWidget />;
-    const Trades = () => <Text>Trades Widget</Text>;
+    const Trades = () => <Trades />;
 
     const renderScene = SceneMap({
         orderbook: OrderBook,
