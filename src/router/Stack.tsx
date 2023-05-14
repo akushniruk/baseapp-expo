@@ -45,12 +45,12 @@ export const authStack = () => {
                 options={({ navigation }) => stackHeaderOptions(navigation)}
             />
             <Stack.Screen
-                name="ResetPassword"
+                name="VerifyEmail"
                 component={VerifyEmailScreen}
                 options={({ navigation }) => stackHeaderOptions(navigation)}
             />
             <Stack.Screen
-                name="VerifyEmail"
+                name="ResetPassword"
                 component={ResetPasswordScreen}
                 options={({ navigation }) => stackHeaderOptions(navigation)}
             />
