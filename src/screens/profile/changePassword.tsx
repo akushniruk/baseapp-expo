@@ -1,19 +1,19 @@
-import { withAuth, Security } from "@akushniruk/baseapp-expo-sdk";
+import { ChangePasswordForm, withAuth } from "@akushniruk/baseapp-expo-sdk";
 import React from "react";
 import { StyleSheet, SafeAreaView, View } from "react-native";
 import { globalStyles } from "../../shared/styles/global";
 
-const SecurityScreen = () => {
+const ChangePassowrdScreen = () => {
     return (
         <SafeAreaView>
             <View style={[globalStyles.layoutContainer, styles.container]}>
-                <Security />
+                <ChangePasswordForm />
             </View>
         </SafeAreaView>
     );
 };
 
-export default withAuth(SecurityScreen);
+export default withAuth(ChangePassowrdScreen);
 
 const styles = StyleSheet.create({
     container: {
