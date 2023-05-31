@@ -18,13 +18,17 @@ import ReferralScreen from "../screens/profile/referral";
 import SecurityScreen from "../screens/profile/security";
 import AccountActivityScreen from "../screens/profile/accountActivity";
 import ChangePasswordScreen from "../screens/profile/changePassword";
+import TwoFactorAuthScreen from "../screens/profile/twoFactorAuth";
+import BackupKeyScreen from "../screens/profile/backupKey";
+import SettingsScreen from "../screens/profile/settings";
+import HelpScreen from "../screens/profile/help";
 import ApiKeysScreen from "../screens/profile/apiKeys";
 import ApiDocsScreen from "../screens/profile/apiDocs";
 
 import { stackHeaderOptions, screenOptions, screenWithoutHeader, stackHomeHeaderOptions } from "./options";
 import MarketTradingScreen from "../screens/marketTrading";
 import React from "react";
-import { MarketsSelectorModal } from "../widgets/MarketsSelectorModal";
+// import { MarketsSelectorModal } from "../widgets/MarketsSelectorModal";
 
 const Stack = createNativeStackNavigator();
 
@@ -90,10 +94,15 @@ export const profileStack = () => {
             />
             <Stack.Screen
                 name="TwoFactorAuth"
-                component={SecurityScreen}
+                component={TwoFactorAuthScreen}
                 options={({ navigation }) =>
                     stackHeaderOptions(navigation, false, false, false, "Google Authenticator")
                 }
+            />
+            <Stack.Screen
+                name="BackupKey"
+                component={BackupKeyScreen}
+                options={({ navigation }) => stackHeaderOptions(navigation, false, false, false, "Backup Key")}
             />
             <Stack.Screen
                 name="ChangePassword"
@@ -106,13 +115,18 @@ export const profileStack = () => {
                 options={({ navigation }) => stackHeaderOptions(navigation, false, false, false, "Account Activity")}
             />
             <Stack.Screen
+                name="Settings"
+                component={SettingsScreen}
+                options={({ navigation }) => stackHeaderOptions(navigation, false, false, false, "Settings")}
+            />
+            <Stack.Screen
                 name="ApiDocs"
                 component={ApiDocsScreen}
                 options={({ navigation }) => stackHeaderOptions(navigation, false, false, false, "API Docs")}
             />
             <Stack.Screen
                 name="Support"
-                component={ProfileDetailsScreen}
+                component={HelpScreen}
                 options={({ navigation }) => stackHeaderOptions(navigation, false, false, false, "Help & Support")}
             />
         </>
