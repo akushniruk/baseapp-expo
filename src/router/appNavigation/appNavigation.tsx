@@ -1,13 +1,7 @@
 import { FC, useCallback } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationIcons } from "../../assets/images/navigation/navigationIcons";
-import {
-    HomeStack,
-    MarketsStack,
-    OrdersStack,
-    TradesStack,
-    WalletsStack,
-} from "../stack";
+import { HomeStack, MarketsStack, OrdersStack, TradesStack, WalletsStack } from "../Stack";
 import { getPalette } from "../../shared/lib/getPalette";
 // TODO: fix import
 import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";
@@ -26,18 +20,10 @@ export const AppNavigation: FC = () => {
                 ({ route }) => ({
                     headerShown: false,
                     tabBarIcon: ({ focused, color, size }) => {
-                        return (
-                            <NavigationIcons
-                                name={route.name}
-                                focused={focused}
-                            />
-                        );
+                        return <NavigationIcons name={route.name} focused={focused} />;
                     },
-                    tabBarActiveTintColor:
-                        palette.Navbar["navbar-control-layer-color"][60].value,
-                    tabBarInactiveTintColor:
-                        palette.Controls["neutral-control-layer-color"][70]
-                            .value,
+                    tabBarActiveTintColor: palette.Navbar["navbar-control-layer-color"][60].value,
+                    tabBarInactiveTintColor: palette.Controls["neutral-control-layer-color"][70].value,
                 }),
                 []
             )}

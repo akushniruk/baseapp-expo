@@ -6,7 +6,7 @@ import { globalStyles } from "../../shared/styles/global";
 const SettingsScreen = () => {
     return (
         <SafeAreaView>
-            <View style={[globalStyles.layoutContainer, styles.container]}>
+            <View style={styles.container}>
                 <Settings />
             </View>
         </SafeAreaView>

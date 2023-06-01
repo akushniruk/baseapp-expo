@@ -9,7 +9,7 @@ const BackupKeyFormScreen = () => {
 
     return (
         <SafeAreaView>
-            <View style={[globalStyles.layoutContainer, styles.container]}>
+            <View style={styles.container}>
                 <BackupKeyForm navigation={navigation} />
             </View>
         </SafeAreaView>

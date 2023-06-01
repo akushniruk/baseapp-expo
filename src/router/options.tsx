@@ -5,8 +5,11 @@ import { ProfileHomeIcon } from "../shared/ui/navigation/headers/profileHomeIcon
 import { LoginButton } from "../shared/ui/navigation/headers/loginButton";
 import { getPalette } from "../shared/lib/getPalette";
 import { Text } from "react-native";
+import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";
+
 export const screenOptions = () => {
-    const palette = getPalette("light");
+    const { theme } = useThemeContext();
+    const palette = getPalette(theme);
 
     return {
         headerShadowVisible: false,

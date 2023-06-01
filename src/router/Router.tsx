@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { authStack, profileStack, tradingStack } from "./stack";
+import { authStack, profileStack, tradingStack } from "./Stack";
 import { AppNavigation } from "./appNavigation/appNavigation";
 import { screenOptions } from "./options";
 
