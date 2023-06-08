@@ -1,7 +1,7 @@
 import { FC, useCallback } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationIcons } from "../../assets/images/navigation/navigationIcons";
-import { HomeStack, MarketsStack, OrdersStack, TradesStack, WalletsStack } from "../Stack";
+import { HomeStack, MarketsStack, OrdersStack, TradesStack, WalletsStack } from "../stack";
 import { getPalette } from "../../shared/lib/getPalette";
 // TODO: fix import
 import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";

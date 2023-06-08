@@ -12,6 +12,8 @@ import TradesScreen from "../screens/trades";
 import OrdersScreen from "../screens/orders";
 import WalletsScreen from "../screens/wallets";
 
+import WalletDetailsScreen from "../screens/wallets/walletDetails";
+
 import ProfileScreen from "../screens/profile";
 import ProfileDetailsScreen from "../screens/profile/details";
 import ReferralScreen from "../screens/profile/referral";
@@ -193,6 +195,7 @@ export const WalletsStack = () => {
     return (
         <Stack.Navigator screenOptions={{ ...screenWithoutHeader, ...screenOptions() }} initialRouteName="Wallets">
             <Stack.Screen name="Wallets" component={WalletsScreen} />
+            <Stack.Screen name="WalletDetails" component={WalletDetailsScreen} />
         </Stack.Navigator>
     );
 };

@@ -1,11 +1,11 @@
-import { withAuth } from "@akushniruk/baseapp-expo-sdk";
+import { Wallets, withAuth } from "@akushniruk/baseapp-expo-sdk";
 import React from "react";
-import { View, Text } from "react-native";
+import { View } from "react-native";
 
 const WalletsScreen = () => {
     return (
         <View>
-            <Text>Wallets</Text>
+            <Wallets />
         </View>
     );
 };
