@@ -1,3 +1,5 @@
+import React from "react";
+
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import LoginScreen from "../screens/iam/authentication/Login";
@@ -9,7 +11,6 @@ import ResetPasswordScreen from "../screens/iam/authentication/ResetPassword";
 import HomeScreen from "../screens/home";
 import MarketsScreen from "../screens/markets";
 import TradesScreen from "../screens/trades";
-import OrdersScreen from "../screens/orders";
 import WalletsScreen from "../screens/wallets";
 
 import WalletDetailsScreen from "../screens/wallets/walletDetails";
@@ -34,7 +35,7 @@ import ApiDocsScreen from "../screens/profile/apiDocs";
 
 import { stackHeaderOptions, screenOptions, screenWithoutHeader, stackHomeHeaderOptions } from "./options";
 import MarketTradingScreen from "../screens/marketTrading";
-import React from "react";
+import { CryptoIconFromWallet } from "../shared/ui/navigation/headers/cryptoIconFromWallet";
 // import { MarketsSelectorModal } from "../widgets/MarketsSelectorModal";
 
 const Stack = createNativeStackNavigator();
@@ -163,12 +164,48 @@ export const tradingStack = () => {
 export const walletDetailsStack = () => {
     return (
         <>
-            <Stack.Screen name="WalletDetails" component={WalletDetailsScreen} />
-            <Stack.Screen name="Deposit" component={DepositScreen} />
-            <Stack.Screen name="Withdrawal" component={WithdrawalScreen} />
-            <Stack.Screen name="Beneficiaries" component={BeneficiariesScreen} />
-            <Stack.Screen name="CreateCryptoBeneficiary" component={CreateCryptoBeneficiaryScreen} />
-            <Stack.Screen name="ConfirmBeneficiary" component={ConfirmBeneficiaryScreen} />
+            <Stack.Screen
+                name="WalletDetails"
+                component={WalletDetailsScreen}
+                options={({ navigation }) =>
+                    stackHeaderOptions(navigation, false, false, false, "", <CryptoIconFromWallet />)
+                }
+            />
+            <Stack.Screen
+                name="Deposit"
+                component={DepositScreen}
+                options={({ navigation }) =>
+                    stackHeaderOptions(navigation, false, true, true, "", <CryptoIconFromWallet />)
+                }
+            />
+            <Stack.Screen
+                name="Withdrawal"
+                component={WithdrawalScreen}
+                options={({ navigation }) =>
+                    stackHeaderOptions(navigation, false, true, true, "", <CryptoIconFromWallet />)
+                }
+            />
+            <Stack.Screen
+                name="Beneficiaries"
+                component={BeneficiariesScreen}
+                options={({ navigation }) =>
+                    stackHeaderOptions(navigation, false, false, false, "", <CryptoIconFromWallet />)
+                }
+            />
+            <Stack.Screen
+                name="CreateCryptoBeneficiary"
+                component={CreateCryptoBeneficiaryScreen}
+                options={({ navigation }) =>
+                    stackHeaderOptions(navigation, false, true, true, "", <CryptoIconFromWallet />)
+                }
+            />
+            <Stack.Screen
+                name="ConfirmBeneficiary"
+                component={ConfirmBeneficiaryScreen}
+                options={({ navigation }) =>
+                    stackHeaderOptions(navigation, false, true, true, "", <CryptoIconFromWallet />)
+                }
+            />
         </>
     );
 };
@@ -187,7 +224,7 @@ export const HomeStack = () => {
 
 export const MarketsStack = () => {
     return (
-        <Stack.Navigator screenOptions={{ ...screenWithoutHeader, ...screenOptions() }} initialRouteName="Markets">
+        <Stack.Navigator screenOptions={{ ...screenOptions() }} initialRouteName="Markets">
             <Stack.Screen name="Markets" component={MarketsScreen} />
         </Stack.Navigator>
     );
@@ -195,16 +232,8 @@ export const MarketsStack = () => {
 
 export const TradesStack = () => {
     return (
-        <Stack.Navigator screenOptions={{ ...screenWithoutHeader, ...screenOptions() }} initialRouteName="Trades">
+        <Stack.Navigator screenOptions={{ ...screenOptions() }} initialRouteName="Trades">
             <Stack.Screen name="Trades" component={TradesScreen} />
-        </Stack.Navigator>
-    );
-};
-
-export const OrdersStack = () => {
-    return (
-        <Stack.Navigator screenOptions={{ ...screenWithoutHeader, ...screenOptions() }} initialRouteName="Orders">
-            <Stack.Screen name="Orders" component={OrdersScreen} />
         </Stack.Navigator>
     );
 };
@@ -212,7 +241,11 @@ export const OrdersStack = () => {
 export const WalletsStack = () => {
     return (
         <Stack.Navigator screenOptions={{ ...screenWithoutHeader, ...screenOptions() }} initialRouteName="Wallets">
-            <Stack.Screen name="Wallets" component={WalletsScreen} />
+            <Stack.Screen
+                name="Wallets"
+                component={WalletsScreen}
+                options={({ navigation }) => stackHeaderOptions(navigation, false, false, true, "", "")}
+            />
         </Stack.Navigator>
     );
 };

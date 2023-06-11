@@ -1,12 +1,17 @@
 import { Wallets, withAuth } from "@akushniruk/baseapp-expo-sdk";
+import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";
 import React from "react";
-import { View } from "react-native";
+import { SafeAreaView } from "react-native";
+import { walletsStyles } from "./wallets.styles";
 
 const WalletsScreen = () => {
+    const { theme } = useThemeContext();
+    const styles = walletsStyles(theme);
+
     return (
-        <View>
+        <SafeAreaView style={styles.safeAreaViewContainer}>
             <Wallets />
-        </View>
+        </SafeAreaView>
     );
 };
 

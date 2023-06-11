@@ -16,7 +16,7 @@ const WalletDetailsScreen = () => {
     };
 
     return (
-        <SafeAreaView style={styles.safeAreaContainer}>
+        <View style={styles.container}>
             <WalletDetailsWidget />
             <View style={styles.buttonContainer}>
                 <View style={styles.button}>
@@ -27,7 +27,7 @@ const WalletDetailsScreen = () => {
                     <Button onPress={() => redirectTo("/Withdrawal")} title="withdrawal" isLoading={false} />
                 </View>
             </View>
-        </SafeAreaView>
+        </View>
     );
 };
 

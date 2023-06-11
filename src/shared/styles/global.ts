@@ -2,6 +2,6 @@ import { StyleSheet } from "react-native";
 
 export const globalStyles = StyleSheet.create({
     layoutContainer: {
-        marginHorizontal: 12,
+        paddingHorizontal: 12,
     },
 });

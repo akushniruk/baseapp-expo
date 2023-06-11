@@ -23,7 +23,7 @@ export const screenOptions = () => {
 };
 
 export const screenWithoutHeader = {
-    headerShown: true,
+    headerShown: false,
 };
 
 export const stackHeaderOptions = (
@@ -47,7 +47,7 @@ export const stackHeaderOptions = (
     },
 });
 
-// TODO: move to separate component
+// TODO: move to separate file
 export const stackHomeHeaderOptions = (navigation: any, title?: string) => ({
     title: title || "",
     headerBackVisible: false,
