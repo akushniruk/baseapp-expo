@@ -13,6 +13,11 @@ import OrdersScreen from "../screens/orders";
 import WalletsScreen from "../screens/wallets";
 
 import WalletDetailsScreen from "../screens/wallets/walletDetails";
+import DepositScreen from "../screens/wallets/deposit";
+import WithdrawalScreen from "../screens/wallets/withdrawal";
+import BeneficiariesScreen from "../screens/wallets/beneficiaries";
+import CreateCryptoBeneficiaryScreen from "../screens/wallets/createCryptoBeneficiary";
+import ConfirmBeneficiaryScreen from "../screens/wallets/confirmBeneficiary";
 
 import ProfileScreen from "../screens/profile";
 import ProfileDetailsScreen from "../screens/profile/details";
@@ -155,6 +160,19 @@ export const tradingStack = () => {
     );
 };
 
+export const walletDetailsStack = () => {
+    return (
+        <>
+            <Stack.Screen name="WalletDetails" component={WalletDetailsScreen} />
+            <Stack.Screen name="Deposit" component={DepositScreen} />
+            <Stack.Screen name="Withdrawal" component={WithdrawalScreen} />
+            <Stack.Screen name="Beneficiaries" component={BeneficiariesScreen} />
+            <Stack.Screen name="CreateCryptoBeneficiary" component={CreateCryptoBeneficiaryScreen} />
+            <Stack.Screen name="ConfirmBeneficiary" component={ConfirmBeneficiaryScreen} />
+        </>
+    );
+};
+
 export const HomeStack = () => {
     return (
         <Stack.Navigator screenOptions={{ ...screenOptions() }} initialRouteName="Home">
@@ -195,7 +213,6 @@ export const WalletsStack = () => {
     return (
         <Stack.Navigator screenOptions={{ ...screenWithoutHeader, ...screenOptions() }} initialRouteName="Wallets">
             <Stack.Screen name="Wallets" component={WalletsScreen} />
-            <Stack.Screen name="WalletDetails" component={WalletDetailsScreen} />
         </Stack.Navigator>
     );
 };
