@@ -2,7 +2,6 @@ import React, { FC } from "react";
 import { BackArrowButton } from "../shared/ui/navigation/headers/backArrowButton";
 import { CloseStackHeader } from "../shared/ui/navigation/headers/closeStackHeader";
 import { ProfileHomeIcon } from "../shared/ui/navigation/headers/profileHomeIcon";
-import { LoginButton } from "../shared/ui/navigation/headers/loginButton";
 import { getPalette } from "../shared/lib/getPalette";
 import { Text } from "react-native";
 import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";
@@ -53,5 +52,4 @@ export const stackHomeHeaderOptions = (navigation: any, title?: string) => ({
     headerBackVisible: false,
     headerShadowVisible: false,
     headerLeft: () => <ProfileHomeIcon navigation={navigation} />,
-    headerRight: () => <LoginButton navigation={navigation} />,
 });

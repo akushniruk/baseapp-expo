@@ -13,123 +13,61 @@ export const homeStyles = (theme: string) => {
         scrollViewContainer: {
             width: "100%",
         },
-        auroraImage: {
-            marginTop: 12,
-            width: 354,
-            height: 220,
-        },
-        infoRow: {
-            paddingHorizontal: 12,
-            width: "100%",
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-around",
-            paddingVertical: 14,
-            marginTop: 64,
-            backgroundColor:
-                palette.Controls["neutral-control-layer-color"][100].value,
-        },
-        infoRowText: {
-            color: palette.Controls["neutral-control-color"]["00"].value,
-            textAlign: "center",
-            fontSize: 14,
-            fontWeight: "400",
-        },
-        infoRowTextBold: {
-            fontWeight: "700",
-            fontSize: 24,
-        },
         infoBlockMargin: {
-            marginTop: 64,
-        },
-        infoBlockCenter: {
-            display: "flex",
-            alignItems: "center",
+            marginTop: 24,
         },
         infoBlock: {
             paddingHorizontal: 12,
             width: "100%",
         },
-        marginTop32: {
-            marginTop: 32,
-        },
-        marginTop24: {
-            marginTop: 24,
-        },
         title: {
             fontWeight: "700",
-            fontSize: 32,
+            fontSize: 18,
         },
-        content: {
-            marginTop: 24,
-            fontWeight: "400",
-            fontSize: 16,
-            lineHeight: 24,
-        },
-        infoExperience: {
-            width: "80%",
-        },
-        featureBox: {
-            width: "100%",
-            backgroundColor: "#F0F0F0",
-            borderRadius: 4,
-            marginTop: 32,
-            padding: 16,
-        },
-        featureBoxImage: {
-            alignItems: "center",
-            display: "flex",
-        },
-        featureBoxTitle: {
-            textAlign: "center",
-            fontWeight: "700",
-            fontSize: 24,
+        profileInfoContainer: {},
+        serviceViewContainer: {
             marginTop: 12,
+            paddingHorizontal: 12,
         },
-        featureBoxContent: {
+        serviceContainer: {
             marginTop: 12,
-            fontSize: 14,
-            lineHeight: 21,
-            fontWeight: "400",
-        },
-        getStartedBox: {
-            borderRadius: 4,
-            marginTop: 32,
             display: "flex",
             flexDirection: "row",
+            flexWrap: "wrap",
+            alignItems: "center",
             justifyContent: "flex-start",
         },
-        getStartedBoxLevel: {
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "#FCD000",
-        },
-        getStartedBoxLevelText: {
-            fontWeight: "700",
-            fontSize: 48,
-            paddingHorizontal: 30,
-        },
-        getStartedBoxInfo: {
-            backgroundColor: "#F0F0F0",
-            flex: 1,
-            flexWrap: "wrap",
-            padding: 16,
+        serviceBox: {
+            width: 80,
+            height: 80,
             display: "flex",
-            alignItems: "baseline",
-            justifyContent: "flex-end",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: palette.Background["main-background-color"].value,
+            borderWidth: 1,
+            borderColor: palette.Controls["divider-color"][20].value,
+            marginRight: 6,
+            marginTop: 6,
+            borderRadius: 2,
+            padding: 6,
         },
-        getStartedBoxTitle: {
-            textAlign: "center",
-            fontWeight: "700",
-            fontSize: 24,
-            marginTop: 12,
+        serviceBoxPressed: {
+            backgroundColor: palette.Controls["divider-color"][20].value,
         },
-        getStartedBoxContent: {
-            marginTop: 12,
-            fontSize: 14,
-            lineHeight: 21,
-            fontWeight: "400",
+        serviceIcon: {
+            marginBottom: 6,
+        },
+        serviceTitle: {
+            color: palette["text-color"][70].value,
+        },
+        bannerContainer: {
+            width: "100%",
+            marginTop: 24,
+            paddingHorizontal: 12,
+        },
+        banner: {
+            width: "100%",
+            height: 120,
         },
     });
 };

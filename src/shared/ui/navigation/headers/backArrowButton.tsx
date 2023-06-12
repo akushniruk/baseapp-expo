@@ -8,7 +8,7 @@ export const BackArrowButton: FC<any> = ({ navigation }) => {
     }, [navigation]);
 
     return (
-        <Pressable style={{ marginLeft: -10 }} onPress={returnHome}>
+        <Pressable style={{ marginLeft: -10, paddingRight: 12, paddingVertical: 12 }} onPress={returnHome}>
             <ArrowLeft />
         </Pressable>
     );

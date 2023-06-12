@@ -1,115 +1,111 @@
 import { Image } from "react-native";
 
-export const INFO_AURORA = [
+export const SERVICES = [
     {
-        id: "customers",
-        name: "Customers",
-        amount: "30M+",
-    },
-    {
-        id: "volume",
-        name: "30 day volume",
-        amount: "+$30M+",
-    },
-    {
-        id: "countries",
-        name: "Countries",
-        amount: "101",
-    },
-];
-
-export const PLATFORM_FEATURES = [
-    {
-        id: "exchange",
+        id: 0,
         img: (
             <Image
-                style={{ height: 100, resizeMode: "contain" }}
-                source={require("../../assets/images/home/exchange.png")}
+                style={{ height: 24, resizeMode: "contain" }}
+                source={require("../../assets/images/home/receive.png")}
+            />
+        ),
+        title: "Deposit",
+        path: "/Deposit",
+    },
+    {
+        id: 1,
+        img: (
+            <Image
+                style={{ height: 24, resizeMode: "contain" }}
+                source={require("../../assets/images/home/send2.png")}
+            />
+        ),
+        title: "Sent",
+        path: "/Withdrawal",
+    },
+    {
+        id: 2,
+        img: (
+            <Image
+                style={{ height: 24, resizeMode: "contain" }}
+                source={require("../../assets/images/home/trade.png")}
             />
         ),
         title: "Exchange",
-        content:
-            "Baseapp offers the most liquid order book in the world, allowing users to easily exchange Bitcoin, Ethereum, EOS, Litecoin, Ripple, NEO and many other digital assets with minimal slippage.",
+        path: "/MarketsStack",
     },
     {
-        id: "order_types",
+        id: 4,
         img: (
             <Image
-                style={{ height: 100, resizeMode: "contain" }}
-                source={require("../../assets/images/home/order_types.png")}
+                style={{ height: 24, resizeMode: "contain" }}
+                source={require("../../assets/images/home/profile2user.png")}
             />
         ),
-        title: "Order types",
-        content:
-            "Baseapp offers a suite of order types to give traders the tools they need for every scenario. Discover more about our most advanced Algorithmic orders types.",
+        title: "P2P",
+        path: "/P2P",
     },
     {
-        id: "security",
+        id: 5,
         img: (
             <Image
-                style={{ height: 100, resizeMode: "contain" }}
-                source={require("../../assets/images/home/security.png")}
+                style={{ height: 24, resizeMode: "contain" }}
+                source={require("../../assets/images/home/recoveryconvert.png")}
             />
         ),
-        title: "Security",
-        content:
-            "Security of user information and funds is our first priority. Contact us to learn more about our security features and integrations.",
+        title: "Convert",
+        path: "/Convert",
     },
     {
-        id: "api_integration",
+        id: 6,
         img: (
             <Image
-                style={{ height: 100, resizeMode: "contain" }}
-                source={require("../../assets/images/home/api_integration.png")}
+                style={{ height: 24, resizeMode: "contain" }}
+                source={require("../../assets/images/home/profileadd.png")}
             />
         ),
-        title: "API integration",
-        content:
-            "Our Websocket feed lets you easily gain access to real-time market data, while our trading API lets you develop secure, programmatic trading bots.",
+        title: "Invite",
+        path: "/Referral",
     },
     {
-        id: "customizable_interface",
+        id: 6,
         img: (
             <Image
-                style={{ height: 100, resizeMode: "contain" }}
-                source={require("../../assets/images/home/custom_interface.png")}
+                style={{ height: 24, resizeMode: "contain" }}
+                source={require("../../assets/images/home/i24support.png")}
             />
         ),
-        title: "Customizable interface",
-        content:
-            "Organize your workspace according to your needs: compose your layout, choose between themes, set up notifications and data preferences.",
-    },
-    {
-        id: "community",
-        img: (
-            <Image
-                style={{ height: 100, resizeMode: "contain" }}
-                source={require("../../assets/images/home/community.png")}
-            />
-        ),
-        title: "Community",
-        content:
-            "Join a global community that believes in the power of crypto.",
+        title: "Support",
+        path: "/Support",
     },
 ];
 
-export const LETS_GET_STARTED = [
+export const BANNERS = [
     {
-        id: "1",
-        title: "Verify your identity",
-        content:
-            "Please confirm your identity by undergoing the identity verification procedure to ensure the safety of your account and transactions.",
+        id: 0,
+        img: (
+            <Image
+                style={{ width: "100%", borderRadius: 2, height: 180 }}
+                source={require("../../assets/images/home/banner.png")}
+            />
+        ),
     },
     {
-        id: "2",
-        title: "Fund your account",
-        content:
-            "To begin trading cryptocurrencies, add funds to your account using various payment methods.",
+        id: 1,
+        img: (
+            <Image
+                style={{ width: "100%", borderRadius: 2, height: 180 }}
+                source={require("../../assets/images/home/bannerCommunity.png")}
+            />
+        ),
     },
     {
-        id: "3",
-        title: "Start trading",
-        content:
-            "You are now ready to start trading! Purchase or sell cryptocurrencies, establish regular purchases for your investments, and explore the many features of Aurora.",
+        id: 2,
+        img: (
+            <Image
+                style={{ width: "100%", borderRadius: 2, height: 180 }}
+                source={require("../../assets/images/home/bannerBounty.png")}
+            />
+        ),
     },
 ];
