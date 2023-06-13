@@ -3,15 +3,30 @@ import { BackArrowButton } from "../shared/ui/navigation/headers/backArrowButton
 import { CloseStackHeader } from "../shared/ui/navigation/headers/closeStackHeader";
 import { ProfileHomeIcon } from "../shared/ui/navigation/headers/profileHomeIcon";
 import { getPalette } from "../shared/lib/getPalette";
-import { Text } from "react-native";
+import { Platform, Text } from "react-native";
 import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";
 
 export const screenOptions = () => {
     const { theme } = useThemeContext();
     const palette = getPalette(theme);
 
+    if (Platform.OS === "android") {
+        return {
+            headerShadowVisible: true,
+            statusBarTranslucent: false,
+            statusBarStyle: theme === "light" ? "dark" : "light",
+            statusBarColor: palette.Background["main-background-color"].value,
+            headerStyle: {
+                backgroundColor: palette.Background["main-background-color"].value,
+            },
+            contentStyle: {
+                backgroundColor: palette.Background["main-background-color"].value,
+            },
+        };
+    }
+
     return {
-        headerShadowVisible: false,
+        headerShadowVisible: true,
         headerStyle: {
             backgroundColor: palette.Background["main-background-color"].value,
         },

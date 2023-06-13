@@ -5,6 +5,7 @@ import { HomeStack, MarketsStack, TradesStack, WalletsStack } from "../stack";
 import { getPalette } from "../../shared/lib/getPalette";
 // TODO: fix import
 import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";
+import { Platform } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
@@ -19,6 +20,16 @@ export const AppNavigation: FC = () => {
             screenOptions={useCallback(
                 ({ route }) => ({
                     headerShown: false,
+                    tabBarStyle: Platform.OS === "android" && {
+                        paddingVertical: 24,
+                        height: 54,
+                    },
+                    tabBarItemStyle: Platform.OS === "android" && {
+                        paddingBottom: 10,
+                    },
+                    tabBarIconStyle: Platform.OS === "android" && {
+                        paddingBottom: 14,
+                    },
                     tabBarIcon: ({ focused, color, size }) => {
                         return <NavigationIcons name={route.name} focused={focused} />;
                     },
