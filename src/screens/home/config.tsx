@@ -85,7 +85,7 @@ export const BANNERS = [
         id: 0,
         img: (
             <Image
-                style={{ width: "100%", borderRadius: 2, height: 180 }}
+                style={{ width: "100%", borderRadius: 2, height: 250 }}
                 source={require("../../assets/images/home/banner.png")}
             />
         ),
@@ -94,17 +94,8 @@ export const BANNERS = [
         id: 1,
         img: (
             <Image
-                style={{ width: "100%", borderRadius: 2, height: 180 }}
+                style={{ width: "100%", borderRadius: 2, height: 250 }}
                 source={require("../../assets/images/home/bannerCommunity.png")}
-            />
-        ),
-    },
-    {
-        id: 2,
-        img: (
-            <Image
-                style={{ width: "100%", borderRadius: 2, height: 180 }}
-                source={require("../../assets/images/home/bannerBounty.png")}
             />
         ),
     },

@@ -7,7 +7,6 @@ export const walletsStyles = (theme: string) => {
     return StyleSheet.create({
         safeAreaViewContainer: {
             marginTop: 64,
-            paddingHorizontal: 12,
         },
     });
 };

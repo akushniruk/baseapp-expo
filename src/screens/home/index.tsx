@@ -23,21 +23,23 @@ const HomeScreen = () => {
 
     const renderServices = (service: (typeof SERVICES)[0]) => {
         return (
-            <Pressable
-                style={({ pressed }) => [
-                    styles.serviceBox,
-                    {
-                        backgroundColor: pressed
-                            ? styles.serviceBoxPressed.backgroundColor
-                            : styles.serviceBox.backgroundColor,
-                    },
-                ]}
-                key={service.id}
-                onPress={() => linkTo(service.path)}
-            >
-                <View style={styles.serviceIcon}>{service.img}</View>
-                <Text style={styles.serviceTitle}>{service.title}</Text>
-            </Pressable>
+            <View style={styles.serviceBoxContainer}>
+                <Pressable
+                    style={({ pressed }) => [
+                        styles.serviceBox,
+                        {
+                            backgroundColor: pressed
+                                ? styles.serviceBoxPressed.backgroundColor
+                                : styles.serviceBox.backgroundColor,
+                        },
+                    ]}
+                    key={service.id}
+                    onPress={() => linkTo(service.path)}
+                >
+                    <View style={styles.serviceIcon}>{service.img}</View>
+                    <Text style={styles.serviceTitle}>{service.title}</Text>
+                </Pressable>
+            </View>
         );
     };
 
@@ -64,7 +66,7 @@ const HomeScreen = () => {
                         width={PAGE_WIDTH}
                         loop
                         style={{ width: "100%" }}
-                        height={180}
+                        height={250}
                         autoPlay={true}
                         autoPlayInterval={2000}
                         data={BANNERS}

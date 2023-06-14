@@ -28,10 +28,8 @@ export const NavigationIcons: FC<Props> = ({ name, focused }) => {
                 <Home
                     color={
                         focused
-                            ? palette.Navbar["navbar-control-layer-color"][60]
-                                  .value
-                            : palette.Controls["neutral-control-color"][70]
-                                  .value
+                            ? palette.Navbar["navbar-control-layer-color"][60].value
+                            : palette.Controls["neutral-control-color"][70].value
                     }
                 />
             );
@@ -40,10 +38,8 @@ export const NavigationIcons: FC<Props> = ({ name, focused }) => {
                 <Markets
                     color={
                         focused
-                            ? palette.Navbar["navbar-control-layer-color"][60]
-                                  .value
-                            : palette.Controls["neutral-control-color"][70]
-                                  .value
+                            ? palette.Navbar["navbar-control-layer-color"][60].value
+                            : palette.Controls["neutral-control-color"][70].value
                     }
                 />
             );
@@ -52,10 +48,8 @@ export const NavigationIcons: FC<Props> = ({ name, focused }) => {
                 <Trade
                     color={
                         focused
-                            ? palette.Navbar["navbar-control-layer-color"][60]
-                                  .value
-                            : palette.Controls["neutral-control-color"][80]
-                                  .value
+                            ? palette.Navbar["navbar-control-layer-color"][60].value
+                            : palette.Controls["neutral-control-color"][80].value
                     }
                 />
             );
@@ -64,10 +58,8 @@ export const NavigationIcons: FC<Props> = ({ name, focused }) => {
                 <Orders
                     color={
                         focused
-                            ? palette.Navbar["navbar-control-layer-color"][60]
-                                  .value
-                            : palette.Controls["neutral-control-color"][80]
-                                  .value
+                            ? palette.Navbar["navbar-control-layer-color"][60].value
+                            : palette.Controls["neutral-control-color"][80].value
                     }
                 />
             );
@@ -76,10 +68,8 @@ export const NavigationIcons: FC<Props> = ({ name, focused }) => {
                 <Wallet
                     color={
                         focused
-                            ? palette.Navbar["navbar-control-layer-color"][60]
-                                  .value
-                            : palette.Controls["neutral-control-color"][80]
-                                  .value
+                            ? palette.Navbar["navbar-control-layer-color"][60].value
+                            : palette.Controls["neutral-control-color"][80].value
                     }
                 />
             );

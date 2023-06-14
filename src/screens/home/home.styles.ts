@@ -34,11 +34,12 @@ export const homeStyles = (theme: string) => {
             display: "flex",
             flexDirection: "row",
             flexWrap: "wrap",
-            alignItems: "center",
-            justifyContent: "flex-start",
+        },
+        serviceBoxContainer: {
+            width: "22%",
+            marginRight: 12,
         },
         serviceBox: {
-            width: 80,
             height: 80,
             display: "flex",
             alignItems: "center",
@@ -46,7 +47,6 @@ export const homeStyles = (theme: string) => {
             backgroundColor: palette.Background["main-background-color"].value,
             borderWidth: 1,
             borderColor: palette.Controls["divider-color"][20].value,
-            marginRight: 6,
             marginTop: 6,
             borderRadius: 2,
             padding: 6,
@@ -67,7 +67,7 @@ export const homeStyles = (theme: string) => {
         },
         banner: {
             width: "100%",
-            height: 120,
+            height: 250,
         },
     });
 };

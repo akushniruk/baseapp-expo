@@ -6,6 +6,7 @@ import { getPalette } from "../../shared/lib/getPalette";
 // TODO: fix import
 import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";
 import { Platform } from "react-native";
+import { screenOptions } from "../options";
 
 const Tab = createBottomTabNavigator();
 
@@ -14,30 +15,45 @@ export const AppNavigation: FC = () => {
 
     const palette = getPalette(theme);
 
+    const screenOptionsStyles = (route) => {
+        if (Platform.OS === "android") {
+            return {
+                headerShown: false,
+                tabBarStyle: {
+                    paddingVertical: 24,
+                    height: 54,
+                },
+                tabBarItemStyle: {
+                    paddingBottom: 10,
+                },
+                tabBarIconStyle: {
+                    paddingBottom: 14,
+                },
+                tabBarIcon: ({ focused, color, size }) => {
+                    return <NavigationIcons name={route.name} focused={focused} />;
+                },
+                tabBarActiveTintColor: palette.Navbar["navbar-control-layer-color"][60].value,
+                tabBarInactiveTintColor: palette.Controls["neutral-control-layer-color"][70].value,
+            };
+        }
+
+        return {
+            headerShown: false,
+            tabBarStyle: {
+                backgroundColor: palette.Background["main-background-color"].value,
+            },
+            tabBarIcon: ({ focused, color, size }) => {
+                return <NavigationIcons name={route.name} focused={focused} />;
+            },
+            tabBarActiveTintColor: palette.Navbar["navbar-control-layer-color"][60].value,
+            tabBarInactiveTintColor: palette.Controls["neutral-control-layer-color"][70].value,
+        };
+    };
+
     return (
         <Tab.Navigator
             initialRouteName="Exchange"
-            screenOptions={useCallback(
-                ({ route }) => ({
-                    headerShown: false,
-                    tabBarStyle: Platform.OS === "android" && {
-                        paddingVertical: 24,
-                        height: 54,
-                    },
-                    tabBarItemStyle: Platform.OS === "android" && {
-                        paddingBottom: 10,
-                    },
-                    tabBarIconStyle: Platform.OS === "android" && {
-                        paddingBottom: 14,
-                    },
-                    tabBarIcon: ({ focused, color, size }) => {
-                        return <NavigationIcons name={route.name} focused={focused} />;
-                    },
-                    tabBarActiveTintColor: palette.Navbar["navbar-control-layer-color"][60].value,
-                    tabBarInactiveTintColor: palette.Controls["neutral-control-layer-color"][70].value,
-                }),
-                []
-            )}
+            screenOptions={useCallback(({ route }) => screenOptionsStyles(route), [])}
         >
             <Tab.Screen
                 name="HomeStack"
