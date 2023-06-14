@@ -1,7 +1,7 @@
 {
     "expo": {
-        "name": "baseapp-expo",
-        "slug": "baseapp-expo",
+        "name": "Aurora Pro",
+        "slug": "Aurora Pro",
         "version": "1.0.0",
         "orientation": "portrait",
         "icon": "./assets/icon.png",
@@ -15,7 +15,7 @@
         "ios": {
             "supportsTablet": false,
             "bundleIdentifier": "baseapp-expo",
-            "buildNumber": "13"
+            "buildNumber": "14"
         },
         "android": {
             "adaptiveIcon": {
