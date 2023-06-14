@@ -1,11 +1,12 @@
 import { WalletDetailsWidget, withAuth, Button } from "@akushniruk/baseapp-expo-sdk";
 import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";
-import { useLinkTo } from "@react-navigation/native";
+import { useLinkTo, useNavigation } from "@react-navigation/native";
 import React from "react";
-import { View, SafeAreaView } from "react-native";
+import { View } from "react-native";
 import { walletDetailsStyles } from "./walletDetails.styles";
 
 const WalletDetailsScreen = () => {
+    const navigation = useNavigation();
     const linkTo = useLinkTo();
 
     const { theme } = useThemeContext();
@@ -17,7 +18,7 @@ const WalletDetailsScreen = () => {
 
     return (
         <View style={styles.container}>
-            <WalletDetailsWidget />
+            <WalletDetailsWidget navigation={navigation} />
             <View style={styles.buttonContainer}>
                 <View style={styles.button}>
                     <Button onPress={() => redirectTo("/Deposit")} title="Deposit" isLoading={false} />
