@@ -8,7 +8,6 @@ export const walletDetailsStyles = (theme: string) => {
         container: {
             position: "relative",
             height: "100%",
-            paddingHorizontal: 12,
             width: "100%",
         },
 
