@@ -1,9 +1,12 @@
 import { FC } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { authStack, profileStack, tradingStack, walletDetailsStack } from "./stack";
 import { AppNavigation } from "./appNavigation/appNavigation";
 import { screenOptions } from "./options";
+import { authStack } from "./stack/authStack";
+import { profileStack } from "./stack/profileStack";
+import { tradingStack } from "./stack/tradingStack";
+import { walletDetailsStack } from "./stack/walletDetailsStack";
 
 const Stack = createNativeStackNavigator();
 

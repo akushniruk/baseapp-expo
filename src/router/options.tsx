@@ -11,10 +11,11 @@ export const screenOptions = () => {
     const palette = getPalette(theme);
 
     if (Platform.OS === "android") {
+        const statusBarStyle: "dark" | "light" = theme === "light" ? "dark" : "light";
         return {
             headerShadowVisible: true,
             statusBarTranslucent: false,
-            statusBarStyle: theme === "light" ? "dark" : "light",
+            statusBarStyle: statusBarStyle,
             statusBarColor: palette.Background["main-background-color"].value,
             headerStyle: {
                 backgroundColor: palette.Background["main-background-color"].value,

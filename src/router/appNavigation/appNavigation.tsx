@@ -1,12 +1,11 @@
 import { FC, useCallback } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationIcons } from "../../assets/images/navigation/navigationIcons";
-import { HomeStack, MarketsStack, TradesStack, WalletsStack } from "../stack";
+import { HomeStack, MarketsStack, TradesStack, WalletsStack } from "../stack/bottomTabBarStack";
 import { getPalette } from "../../shared/lib/getPalette";
 // TODO: fix import
 import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";
 import { Platform } from "react-native";
-import { screenOptions } from "../options";
 
 const Tab = createBottomTabNavigator();
 
