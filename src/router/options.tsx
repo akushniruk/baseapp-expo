@@ -52,7 +52,7 @@ export const stackHeaderOptions = (
     headerBackVisible: headerBackVisible,
     headerShadowVisible: false,
     headerTitle: () => {
-        return !title ? headerTitle : <Text>{title}</Text>;
+        return !title.length ? headerTitle : <Text>{title}</Text>;
     },
     headerLeft: () => {
         return !hideHeaderLeft ? <BackArrowButton navigation={navigation} /> : undefined;

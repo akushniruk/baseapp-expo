@@ -13,9 +13,9 @@ export const walletDetailsStyles = (theme: string) => {
 
         buttonContainer: {
             position: "absolute",
-            left: "5%",
+            left: "2%",
             zIndex: 10,
-            bottom: 32,
+            bottom: 42,
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-between",

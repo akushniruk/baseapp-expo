@@ -9,6 +9,8 @@ import WithdrawalScreen from "../../screens/wallets/withdrawal";
 import BeneficiariesScreen from "../../screens/wallets/beneficiaries";
 import CreateCryptoBeneficiaryScreen from "../../screens/wallets/createCryptoBeneficiary";
 import ConfirmBeneficiaryScreen from "../../screens/wallets/confirmBeneficiary";
+import HistoryScreen from "../../screens/history";
+
 import { CryptoIconFromWallet } from "../../shared/ui/navigation/headers/cryptoIconFromWallet";
 
 const Stack = createNativeStackNavigator();
@@ -57,6 +59,11 @@ export const walletDetailsStack = () => {
                 options={({ navigation }) =>
                     stackHeaderOptions(navigation, false, true, true, "", <CryptoIconFromWallet />)
                 }
+            />
+            <Stack.Screen
+                name="History"
+                component={HistoryScreen}
+                options={({ navigation }) => stackHeaderOptions(navigation, false, true, true, "History")}
             />
         </>
     );
