@@ -32,6 +32,16 @@
                 "projectId": "2e92bf72-a1b5-4af8-95ec-6526c432f107"
             }
         },
-        "owner": "afouren"
+        "owner": "afouren",
+        "plugins": [
+            [
+                "expo-build-properties",
+                {
+                    "ios": {
+                        "flipper": true
+                    }
+                }
+            ]
+        ]
     }
 }
