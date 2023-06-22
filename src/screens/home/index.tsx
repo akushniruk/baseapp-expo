@@ -23,7 +23,7 @@ const HomeScreen = () => {
 
     const renderServices = (service: (typeof SERVICES)[0]) => {
         return (
-            <View style={styles.serviceBoxContainer}>
+            <View key={service.id} style={styles.serviceBoxContainer}>
                 <Pressable
                     style={({ pressed }) => [
                         styles.serviceBox,
@@ -45,7 +45,7 @@ const HomeScreen = () => {
 
     const renderBanner = (banner: (typeof BANNERS)[0]) => {
         return (
-            <Pressable onPress={() => linkTo("/Login")} key={banner.id}>
+            <Pressable key={banner.id} onPress={() => linkTo("/Login")}>
                 {banner.img}
             </Pressable>
         );

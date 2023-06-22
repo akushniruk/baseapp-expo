@@ -12,6 +12,8 @@ import ConfirmBeneficiaryScreen from "../../screens/wallets/confirmBeneficiary";
 import HistoryScreen from "../../screens/history";
 
 import { CryptoIconFromWallet } from "../../shared/ui/navigation/headers/cryptoIconFromWallet";
+import { Pressable } from "react-native";
+import { PlusIcon } from "../../assets/images/navigation/plusIcon";
 
 const Stack = createNativeStackNavigator();
 
@@ -43,7 +45,17 @@ export const walletDetailsStack = () => {
                 name="Beneficiaries"
                 component={BeneficiariesScreen}
                 options={({ navigation }) =>
-                    stackHeaderOptions(navigation, false, false, false, "", <CryptoIconFromWallet />)
+                    stackHeaderOptions(
+                        navigation,
+                        false,
+                        false,
+                        false,
+                        "",
+                        <CryptoIconFromWallet />,
+                        <Pressable onPress={() => navigation.navigate("CreateCryptoBeneficiary")}>
+                            <PlusIcon />
+                        </Pressable>
+                    )
                 }
             />
             <Stack.Screen

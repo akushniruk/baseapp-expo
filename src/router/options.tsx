@@ -47,20 +47,36 @@ export const stackHeaderOptions = (
     headerRight?: boolean,
     hideHeaderLeft?: boolean,
     title?: string,
-    headerTitle?: React.ReactNode
-) => ({
-    headerBackVisible: headerBackVisible,
-    headerShadowVisible: false,
-    headerTitle: () => {
-        return !title.length ? headerTitle : <Text>{title}</Text>;
-    },
-    headerLeft: () => {
-        return !hideHeaderLeft ? <BackArrowButton navigation={navigation} /> : undefined;
-    },
-    headerRight: () => {
-        return headerRight ? <CloseStackHeader navigation={navigation} /> : undefined;
-    },
-});
+    headerTitle?: React.ReactNode,
+    customHeaderRight?: React.ReactNode
+) => {
+    const defaultOptions = {
+        headerBackVisible: headerBackVisible,
+        headerShadowVisible: false,
+        headerTitle: () => {
+            return !title.length ? headerTitle : <Text>{title}</Text>;
+        },
+        headerLeft: () => {
+            return !hideHeaderLeft ? <BackArrowButton navigation={navigation} /> : undefined;
+        },
+    };
+
+    if (customHeaderRight) {
+        return {
+            ...defaultOptions,
+            headerRight: () => {
+                return customHeaderRight ? customHeaderRight : null;
+            },
+        };
+    }
+
+    return {
+        ...defaultOptions,
+        headerRight: () => {
+            return headerRight ? <CloseStackHeader navigation={navigation} /> : undefined;
+        },
+    };
+};
 
 // TODO: move to separate file
 export const stackHomeHeaderOptions = (navigation: any, title?: string) => ({
