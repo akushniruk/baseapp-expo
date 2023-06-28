@@ -3,9 +3,20 @@ import { IRoute } from "@akushniruk/baseapp-expo-sdk/src/shared";
 import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import React, { useState } from "react";
-import { ScrollView, View, SafeAreaView, Text } from "react-native";
-import { SceneMap } from "react-native-tab-view";
+import { View, SafeAreaView } from "react-native";
+import { SceneRendererProps } from "react-native-tab-view";
 import { marketTradingStyles } from "./marketTrading.styles";
+
+const renderScene = (props: SceneRendererProps & { route: any }) => {
+    switch (props.route.key) {
+        case "orderbook":
+            return <OrderbookWidget />;
+        case "trades":
+            return <Trades />;
+        default:
+            return null;
+    }
+};
 
 const MarketTradingScreen = () => {
     const [tabIndex, setTabIndex] = useState<number>(0);
@@ -42,18 +53,6 @@ const MarketTradingScreen = () => {
             side: side,
         });
     };
-
-    const OrderBookComponent = () => (
-        <ScrollView>
-            <OrderbookWidget />
-        </ScrollView>
-    );
-    const TradesComponent = () => <Trades />;
-
-    const renderScene = SceneMap({
-        orderbook: OrderBookComponent,
-        trades: TradesComponent,
-    });
 
     return (
         <SafeAreaView style={styles.safeAreaContainer}>
