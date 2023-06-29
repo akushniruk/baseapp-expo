@@ -16,7 +16,7 @@
         "ios": {
             "supportsTablet": false,
             "bundleIdentifier": "baseapp-expo",
-            "buildNumber": "24"
+            "buildNumber": "25"
         },
         "android": {
             "adaptiveIcon": {
