@@ -2,7 +2,7 @@ import React from "react";
 import { SafeAreaView, Text, Pressable, ScrollView, View, Dimensions } from "react-native";
 import { useAppSelector } from "@akushniruk/baseapp-expo-sdk/src/shared";
 import { RootState } from "@akushniruk/baseapp-expo-sdk/src/shared/providers/redux/model/store";
-import { MarketsV1, Button } from "@akushniruk/baseapp-expo-sdk";
+import { MarketsV1 } from "@akushniruk/baseapp-expo-sdk";
 import { homeStyles } from "./home.styles";
 // TODO: fix import
 import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";
@@ -45,7 +45,7 @@ const HomeScreen = () => {
 
     const renderBanner = (banner: (typeof BANNERS)[0]) => {
         return (
-            <Pressable key={banner.id} onPress={() => linkTo("/Login")}>
+            <Pressable key={banner.id} onPress={() => navigation.navigate("WebView", { path: banner.path })}>
                 {banner.img}
             </Pressable>
         );

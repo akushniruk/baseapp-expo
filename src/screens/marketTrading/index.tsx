@@ -7,12 +7,12 @@ import { View, SafeAreaView } from "react-native";
 import { SceneRendererProps } from "react-native-tab-view";
 import { marketTradingStyles } from "./marketTrading.styles";
 
-const renderScene = (props: SceneRendererProps & { route: any }) => {
+const renderScene = (props: SceneRendererProps & { route: any }, tabIndex) => {
     switch (props.route.key) {
         case "orderbook":
-            return <OrderbookWidget />;
+            return tabIndex === 0 && <OrderbookWidget />;
         case "trades":
-            return <Trades />;
+            return tabIndex === 1 && <Trades />;
         default:
             return null;
     }
@@ -64,7 +64,7 @@ const MarketTradingScreen = () => {
                     <View style={styles.tradingStackOrderBook}>
                         <TabPanel
                             currentTabIndex={tabIndex}
-                            renderScene={renderScene}
+                            renderScene={(props: SceneRendererProps & { route: any }) => renderScene(props, tabIndex)}
                             routes={routes}
                             onCurrentTabChange={setTabIndex}
                         />

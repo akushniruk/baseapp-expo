@@ -37,7 +37,7 @@ export const homeStyles = (theme: string) => {
         },
         serviceBoxContainer: {
             width: "22%",
-            marginRight: 12,
+            marginRight: 8,
         },
         serviceBox: {
             height: 80,

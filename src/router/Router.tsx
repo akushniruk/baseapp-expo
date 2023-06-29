@@ -7,6 +7,7 @@ import { authStack } from "./stack/authStack";
 import { profileStack } from "./stack/profileStack";
 import { tradingStack } from "./stack/tradingStack";
 import { walletDetailsStack } from "./stack/walletDetailsStack";
+import { webViewStack } from "./stack/webViewStack";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +26,7 @@ export const Router: FC = () => {
                 {profileStack()}
                 {tradingStack()}
                 {walletDetailsStack()}
+                {webViewStack()}
             </Stack.Navigator>
         </NavigationContainer>
     );

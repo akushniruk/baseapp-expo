@@ -20,7 +20,7 @@ export const SERVICES = [
                 source={require("../../assets/images/home/send2.png")}
             />
         ),
-        title: "Sent",
+        title: "Send",
         path: "/Withdrawal",
     },
     {
@@ -89,6 +89,7 @@ export const BANNERS = [
                 source={require("../../assets/images/home/banner.png")}
             />
         ),
+        path: "https://www.openware.com/opendax",
     },
     {
         id: 1,
@@ -98,5 +99,6 @@ export const BANNERS = [
                 source={require("../../assets/images/home/bannerCommunity.png")}
             />
         ),
+        path: "https://www.openware.com/opendax",
     },
 ];
