@@ -3,7 +3,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { stackHeaderOptions } from "../options";
 
 import MarketTradingScreen from "../../screens/marketTrading";
-// import { MarketsSelectorModal } from "../widgets/MarketsSelectorModal";
 
 const Stack = createNativeStackNavigator();
 export const tradingStack = () => {

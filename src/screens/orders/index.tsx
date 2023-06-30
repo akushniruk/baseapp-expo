@@ -1,11 +1,11 @@
 import React from "react";
-import { View, Text } from "react-native";
-import { withAuth } from "@akushniruk/baseapp-expo-sdk";
+import { OrdersHistoryWidget, withAuth } from "@akushniruk/baseapp-expo-sdk";
+import { View } from "react-native";
 
 const OrdersScreen = () => {
     return (
-        <View>
-            <Text>Orders</Text>
+        <View style={{ paddingHorizontal: 12 }}>
+            <OrdersHistoryWidget />
         </View>
     );
 };

@@ -4,31 +4,30 @@ import React, { FC, useEffect, useState } from "react";
 import { Text, Pressable } from "react-native";
 import Modal from "react-native-modal";
 import { marketsSelectorModalStyles } from "./marketsSelectorModal.styles";
+import { useAppSelector } from "@akushniruk/baseapp-expo-sdk/src/shared";
+import { RootState } from "@akushniruk/baseapp-expo-sdk/src/shared/providers/redux/model/store";
+import { Market } from "@akushniruk/baseapp-expo-sdk/src/services/markets/model/type";
+import { SelectIcon } from "../../assets/images/system/selector";
 
-interface IMarketsSelectorModal {
-    baseUnit: string;
-    quoteUnit: string;
-    marketId: string;
-}
-
-export const MarketsSelectorModal: FC<IMarketsSelectorModal> = ({
-    baseUnit,
-    quoteUnit,
-    marketId,
-}: IMarketsSelectorModal) => {
+export const MarketsSelectorModal: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const { theme } = useThemeContext();
 
     const styles = marketsSelectorModalStyles(theme);
 
+    const currentMarket: Market | null = useAppSelector((state: RootState) => state.markets.currentMarket);
+
     useEffect(() => {
         setIsOpen(false);
-    }, [marketId]);
+    }, [currentMarket]);
 
     return (
         <>
-            <Pressable onPress={() => setIsOpen(true)}>
-                <Text style={styles.title}>{`${baseUnit?.toUpperCase()} / ${quoteUnit?.toUpperCase()}`}</Text>
+            <Pressable style={styles.selectorContainer} onPress={() => setIsOpen(true)}>
+                <Text
+                    style={styles.title}
+                >{`${currentMarket?.base_unit?.toUpperCase()} / ${currentMarket?.quote_unit?.toUpperCase()}`}</Text>
+                <SelectIcon color="#000000" />
             </Pressable>
             <Modal
                 testID={"marketSelector"}
@@ -39,7 +38,6 @@ export const MarketsSelectorModal: FC<IMarketsSelectorModal> = ({
                 onBackdropPress={() => setIsOpen(false)}
             >
                 <>
-                    <Text style={styles.modalTitle}>Markets</Text>
                     <MarketsV1 />
                 </>
             </Modal>

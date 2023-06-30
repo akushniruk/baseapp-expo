@@ -8,6 +8,7 @@ export const marketsSelectorModalStyles = (theme: string) => {
         title: {
             fontWeight: "700",
             fontSize: 14,
+            paddingRight: 4,
         },
         modalTitle: {
             fontSize: 24,
@@ -22,6 +23,11 @@ export const marketsSelectorModalStyles = (theme: string) => {
 
             width: "80%",
             backgroundColor: palette.Background["body-background-color"].value,
+        },
+        selectorContainer: {
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
         },
     });
 };

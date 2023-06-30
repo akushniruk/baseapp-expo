@@ -45,7 +45,7 @@ const HomeScreen = () => {
 
     const renderBanner = (banner: (typeof BANNERS)[0]) => {
         return (
-            <Pressable key={banner.id} onPress={() => navigation.navigate("WebView", { path: banner.path })}>
+            <Pressable key={banner.id} onPress={() => linkTo("/Login")}>
                 {banner.img}
             </Pressable>
         );

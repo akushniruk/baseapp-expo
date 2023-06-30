@@ -5,6 +5,8 @@ import { ProfileHomeIcon } from "../shared/ui/navigation/headers/profileHomeIcon
 import { getPalette } from "../shared/lib/getPalette";
 import { Platform, Text } from "react-native";
 import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";
+import { MarketsSelectorModal } from "../widgets/MarketsSelectorModal";
+import { OrderHistoryIcon } from "../shared/ui/navigation/headers/orderHistoryIcon";
 
 export const screenOptions = () => {
     const { theme } = useThemeContext();
@@ -84,4 +86,12 @@ export const stackHomeHeaderOptions = (navigation: any, title?: string) => ({
     headerBackVisible: false,
     headerShadowVisible: false,
     headerLeft: () => <ProfileHomeIcon navigation={navigation} />,
+});
+
+export const stackTradesHeaderOptions = (navigation: any, title?: string) => ({
+    title: title || "",
+    headerBackVisible: false,
+    headerShadowVisible: false,
+    headerLeft: () => <MarketsSelectorModal />,
+    headerRight: () => <OrderHistoryIcon />,
 });

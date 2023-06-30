@@ -7,7 +7,13 @@ import MarketsScreen from "../../screens/markets";
 import TradesScreen from "../../screens/trades";
 import WalletsScreen from "../../screens/wallets";
 
-import { stackHeaderOptions, screenOptions, screenWithoutHeader, stackHomeHeaderOptions } from "../options";
+import {
+    stackHeaderOptions,
+    screenOptions,
+    screenWithoutHeader,
+    stackHomeHeaderOptions,
+    stackTradesHeaderOptions,
+} from "../options";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,7 +31,7 @@ export const HomeStack = () => {
 
 export const MarketsStack = () => {
     return (
-        <Stack.Navigator screenOptions={{ ...screenOptions() }} initialRouteName="Markets">
+        <Stack.Navigator screenOptions={{ ...screenOptions(), headerShown: false }} initialRouteName="Markets">
             <Stack.Screen name="Markets" component={MarketsScreen} />
         </Stack.Navigator>
     );
@@ -34,7 +40,11 @@ export const MarketsStack = () => {
 export const TradesStack = () => {
     return (
         <Stack.Navigator screenOptions={{ ...screenOptions() }} initialRouteName="Trades">
-            <Stack.Screen name="Trades" component={TradesScreen} />
+            <Stack.Screen
+                name="Trades"
+                component={TradesScreen}
+                options={({ navigation }) => stackTradesHeaderOptions(navigation)}
+            />
         </Stack.Navigator>
     );
 };
