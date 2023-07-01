@@ -1,14 +1,12 @@
 import { withAuth, Security } from "@akushniruk/baseapp-expo-sdk";
 import React from "react";
-import { StyleSheet, SafeAreaView, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 const SecurityScreen = () => {
     return (
-        <SafeAreaView>
-            <View style={styles.container}>
-                <Security />
-            </View>
-        </SafeAreaView>
+        <View style={styles.container}>
+            <Security />
+        </View>
     );
 };
 
@@ -16,6 +14,6 @@ export default withAuth(SecurityScreen);
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 24,
+        marginTop: 0,
     },
 });

@@ -23,6 +23,7 @@ export const homeStyles = (theme: string) => {
         title: {
             fontWeight: "700",
             fontSize: 18,
+            color: palette["text-color"][70].value,
         },
         profileInfoContainer: {},
         serviceViewContainer: {

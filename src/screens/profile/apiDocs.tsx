@@ -5,13 +5,9 @@ import { globalStyles } from "../../shared/styles/global";
 
 const ApiDocsScreen = () => {
     return (
-        <SafeAreaView>
-            <ScrollView
-                style={[globalStyles.layoutContainer, styles.container]}
-            >
-                <Text>API DOCS</Text>
-            </ScrollView>
-        </SafeAreaView>
+        <ScrollView style={[globalStyles.layoutContainer, styles.container]}>
+            <Text>API DOCS</Text>
+        </ScrollView>
     );
 };
 

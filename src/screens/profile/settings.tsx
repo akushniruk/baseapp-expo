@@ -1,15 +1,12 @@
 import { withAuth, Settings } from "@akushniruk/baseapp-expo-sdk";
 import React from "react";
-import { StyleSheet, SafeAreaView, View } from "react-native";
-import { globalStyles } from "../../shared/styles/global";
+import { StyleSheet, View } from "react-native";
 
 const SettingsScreen = () => {
     return (
-        <SafeAreaView>
-            <View style={styles.container}>
-                <Settings />
-            </View>
-        </SafeAreaView>
+        <View style={styles.container}>
+            <Settings />
+        </View>
     );
 };
 
@@ -17,6 +14,6 @@ export default withAuth(SettingsScreen);
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 24,
+        marginTop: 0,
     },
 });

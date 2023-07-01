@@ -14,6 +14,7 @@ export const screenOptions = () => {
 
     if (Platform.OS === "android") {
         const statusBarStyle: "dark" | "light" = theme === "light" ? "dark" : "light";
+
         return {
             headerShadowVisible: true,
             statusBarTranslucent: false,
@@ -52,11 +53,18 @@ export const stackHeaderOptions = (
     headerTitle?: React.ReactNode,
     customHeaderRight?: React.ReactNode
 ) => {
+    const { theme } = useThemeContext();
+    const palette = getPalette(theme);
+
     const defaultOptions = {
         headerBackVisible: headerBackVisible,
         headerShadowVisible: false,
         headerTitle: () => {
-            return !title.length ? headerTitle : <Text>{title}</Text>;
+            return !title.length ? (
+                headerTitle
+            ) : (
+                <Text style={{ color: palette["text-color"][70].value }}>{title}</Text>
+            );
         },
         headerLeft: () => {
             return !hideHeaderLeft ? <BackArrowButton navigation={navigation} /> : undefined;

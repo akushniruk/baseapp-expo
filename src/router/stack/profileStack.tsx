@@ -16,7 +16,7 @@ import BackupKeyScreen from "../../screens/profile/backupKey";
 import SettingsScreen from "../../screens/profile/settings";
 import HelpScreen from "../../screens/profile/help";
 import ApiKeysScreen from "../../screens/profile/apiKeys";
-import ApiDocsScreen from "../../screens/profile/apiDocs";
+// import ApiDocsScreen from "../../screens/profile/apiDocs";
 
 export const profileStack = () => {
     return (
@@ -73,11 +73,11 @@ export const profileStack = () => {
                 component={SettingsScreen}
                 options={({ navigation }) => stackHeaderOptions(navigation, false, false, false, "Settings")}
             />
-            <Stack.Screen
+            {/* <Stack.Screen
                 name="ApiDocs"
                 component={ApiDocsScreen}
                 options={({ navigation }) => stackHeaderOptions(navigation, false, false, false, "API Docs")}
-            />
+            /> */}
             <Stack.Screen
                 name="Support"
                 component={HelpScreen}
