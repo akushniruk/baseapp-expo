@@ -3,11 +3,7 @@ import React from "react";
 import { SafeAreaView } from "react-native";
 
 const TradesScreen = () => {
-    return (
-        <SafeAreaView>
-            <OrderWidget />
-        </SafeAreaView>
-    );
+    return <OrderWidget />;
 };
 
 export default TradesScreen;
