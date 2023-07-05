@@ -1,4 +1,4 @@
-import { Button, OrderbookWidget, TabPanel, TickerV1, Trades } from "@akushniruk/baseapp-expo-sdk";
+import { Button, ChartKLine, OrderbookWidget, TabPanel, TickerV1, Trades } from "@akushniruk/baseapp-expo-sdk";
 import { IRoute } from "@akushniruk/baseapp-expo-sdk/src/shared";
 import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";
 import { useNavigation, useRoute } from "@react-navigation/native";
@@ -61,6 +61,10 @@ const MarketTradingScreen = () => {
                     <View style={styles.tradingStackTicker}>
                         <TickerV1 marketId={id} />
                     </View>
+                    <View style={{ paddingBottom: 24 }}>
+                        <ChartKLine />
+                    </View>
+
                     <View style={styles.tradingStackOrderBook}>
                         <TabPanel
                             currentTabIndex={tabIndex}
