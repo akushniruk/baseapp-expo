@@ -100,6 +100,7 @@ export const stackTradesHeaderOptions = (navigation: any, title?: string) => ({
     title: title || "",
     headerBackVisible: false,
     headerShadowVisible: false,
+    // FIXME: hook stack issue (REACT)
     headerLeft: () => <MarketsSelectorModal />,
     headerRight: () => <OrderHistoryIcon />,
 });

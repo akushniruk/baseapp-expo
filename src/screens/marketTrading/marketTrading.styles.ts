@@ -6,13 +6,11 @@ export const marketTradingStyles = (theme: string) => {
 
     return StyleSheet.create({
         safeAreaContainer: {
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
             position: "relative",
         },
         scrollViewContainer: {
             width: "100%",
+            height: 1200,
             paddingHorizontal: 12,
             marginBottom: 52,
         },
@@ -35,7 +33,7 @@ export const marketTradingStyles = (theme: string) => {
             paddingBottom: 32,
             position: "absolute",
             zIndex: 2,
-            bottom: 60,
+            bottom: 0,
             display: "flex",
             flexDirection: "row",
             width: "100%",

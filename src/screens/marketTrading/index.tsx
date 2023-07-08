@@ -1,9 +1,9 @@
-import { Button, ChartKLine, OrderbookWidget, TabPanel, TickerV1, Trades } from "@akushniruk/baseapp-expo-sdk";
+import { Button, LineChartKline, OrderbookWidget, TabPanel, TickerV1, Trades } from "@akushniruk/baseapp-expo-sdk";
 import { IRoute } from "@akushniruk/baseapp-expo-sdk/src/shared";
 import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import React, { useState } from "react";
-import { View, SafeAreaView } from "react-native";
+import { View, ScrollView } from "react-native";
 import { SceneRendererProps } from "react-native-tab-view";
 import { marketTradingStyles } from "./marketTrading.styles";
 
@@ -55,27 +55,29 @@ const MarketTradingScreen = () => {
     };
 
     return (
-        <SafeAreaView style={styles.safeAreaContainer}>
-            <View style={styles.scrollViewContainer}>
-                <View style={styles.tradingStack}>
-                    <View style={styles.tradingStackTicker}>
-                        <TickerV1 marketId={id} />
-                    </View>
-                    <View style={{ paddingBottom: 24 }}>
-                        <ChartKLine />
-                    </View>
-
-                    <View style={styles.tradingStackOrderBook}>
-                        <TabPanel
-                            currentTabIndex={tabIndex}
-                            renderScene={(props: SceneRendererProps & { route: any }) => renderScene(props, tabIndex)}
-                            routes={routes}
-                            onCurrentTabChange={setTabIndex}
-                        />
+        <View style={styles.safeAreaContainer}>
+            <ScrollView>
+                <View style={styles.scrollViewContainer}>
+                    <View style={styles.tradingStack}>
+                        <View style={styles.tradingStackTicker}>
+                            <TickerV1 marketId={id} />
+                            <View style={{ paddingTop: 24, paddingBottom: 36 }}>
+                                <LineChartKline />
+                            </View>
+                        </View>
+                        <View style={styles.tradingStackOrderBook}>
+                            <TabPanel
+                                currentTabIndex={tabIndex}
+                                renderScene={(props: SceneRendererProps & { route: any }) =>
+                                    renderScene(props, tabIndex)
+                                }
+                                routes={routes}
+                                onCurrentTabChange={setTabIndex}
+                            />
+                        </View>
                     </View>
                 </View>
-            </View>
-
+            </ScrollView>
             <View style={styles.buttonContainer}>
                 <Button
                     onPress={() => redirectToTrades("bid")}
@@ -90,7 +92,7 @@ const MarketTradingScreen = () => {
                     isLoading={false}
                 />
             </View>
-        </SafeAreaView>
+        </View>
     );
 };
 

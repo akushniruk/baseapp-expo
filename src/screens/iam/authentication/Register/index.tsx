@@ -5,11 +5,7 @@ import { globalStyles } from "../../../../shared/styles/global";
 
 const RegisterScreen = () => {
     return (
-        <SafeAreaView>
-            <ScrollView style={globalStyles.layoutContainer}>
-                <Register />
-            </ScrollView>
-        </SafeAreaView>
+        <Register />
     );
 };
 
