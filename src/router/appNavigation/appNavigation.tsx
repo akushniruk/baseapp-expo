@@ -2,18 +2,11 @@ import { FC, useCallback } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationIcons } from "../../assets/images/navigation/navigationIcons";
 import { HomeStack, MarketsStack, TradesStack, WalletsStack } from "../stack/bottomTabBarStack";
-import { getPalette } from "../../shared/lib/getPalette";
-// TODO: fix import
-import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";
 import { Platform } from "react-native";
 
 const Tab = createBottomTabNavigator();
 
-export const AppNavigation: FC = () => {
-    const { theme } = useThemeContext();
-
-    const palette = getPalette(theme);
-
+export const AppNavigation: FC = (palette: any) => {
     const screenOptionsStyles = (route) => {
         if (Platform.OS === "android") {
             return {

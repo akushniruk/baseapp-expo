@@ -10,7 +10,7 @@ const SettingsScreen = () => {
     );
 };
 
-export default withAuth(SettingsScreen);
+export default SettingsScreen;
 
 const styles = StyleSheet.create({
     container: {
