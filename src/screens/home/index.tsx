@@ -7,8 +7,9 @@ import { homeStyles } from "./home.styles";
 // TODO: fix import
 import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";
 import { useLinkTo, useNavigation } from "@react-navigation/native";
-import { BANNERS, SERVICES } from "./config";
+import { BANNERS, SERVICES, renderServiceImage } from "./config";
 import Carousel from "react-native-reanimated-carousel";
+import { getPalette } from "@akushniruk/baseapp-expo-sdk/src/shared/libs/getPalette";
 
 const PAGE_WIDTH = Dimensions.get("window").width;
 
@@ -20,6 +21,7 @@ const HomeScreen = () => {
     const styles = homeStyles(theme);
 
     const userProfile = useAppSelector((state: RootState) => state.user.profile);
+    const iconColor = getPalette(theme)["text-color"][100].value;
 
     const renderServices = (service: (typeof SERVICES)[0]) => {
         return (
@@ -36,7 +38,7 @@ const HomeScreen = () => {
                     key={service.id}
                     onPress={() => linkTo(service.path)}
                 >
-                    <View style={styles.serviceIcon}>{service.img}</View>
+                    <View style={styles.serviceIcon}>{renderServiceImage(service.img_key, iconColor)}</View>
                     <Text style={styles.serviceTitle}>{service.title}</Text>
                 </Pressable>
             </View>

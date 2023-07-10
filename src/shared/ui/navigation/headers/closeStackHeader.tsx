@@ -8,7 +8,9 @@ export const CloseStackHeader: FC<any> = ({ navigation }) => {
     const returnHome = useCallback(() => {
         switch (route.name) {
             case "Deposit":
+            case "History":
             case "Withdrawal":
+            case "Orders":
             case "Beneficiaries":
             case "ConfirmBeneficiary":
             case "CreateCryptoBeneficiary":

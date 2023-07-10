@@ -1,7 +1,7 @@
 import { withAuth, DepositHistory, WithdrawalHistory, TransferHistory, TabPanel } from "@akushniruk/baseapp-expo-sdk";
 import { useThemeContext } from "@akushniruk/baseapp-expo-sdk/src/shared/hooks/useThemeContext";
 import React, { useState } from "react";
-import { SafeAreaView } from "react-native";
+import { View } from "react-native";
 import { historyStyles } from "./history.styles";
 import { SceneRendererProps } from "react-native-tab-view";
 import { IRoute } from "@akushniruk/baseapp-expo-sdk/src/shared";
@@ -31,14 +31,14 @@ const HistoryScreen = () => {
     ]);
 
     return (
-        <SafeAreaView style={styles.safeAreaViewContainer}>
+        <View style={styles.safeAreaViewContainer}>
             <TabPanel
                 currentTabIndex={tabIndex}
                 renderScene={(props: SceneRendererProps & { route: any }) => renderScene(props)}
                 routes={routes}
                 onCurrentTabChange={setTabIndex}
             />
-        </SafeAreaView>
+        </View>
     );
 };
 

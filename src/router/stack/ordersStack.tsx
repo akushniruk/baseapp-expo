@@ -12,7 +12,7 @@ export const ordersStack = () => {
             <Stack.Screen
                 name="Orders"
                 component={OrdersScreen}
-                options={({ navigation }) => stackHeaderOptions(navigation, false, true, true, "", <View />)}
+                options={({ navigation }) => stackHeaderOptions(navigation, false, true, true, "Orders", <View />)}
             />
         </>
     );
